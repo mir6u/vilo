@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+  }
+}
+
+body {
+  background-image: radial-gradient(gray 0.1rem, transparent 0.1rem),
+    radial-gradient(#fafafa 0.01rem, transparent 0.15rem);
+  background-color: #000001;
+  background-position: 1.4rem 1.4rem, 50px 50px;
+  background-size: 3.5rem 3.5rem;
+  color: rgb(var(--foreground-rgb));
+  
+}
+::selection {
+  background-color: #ffffff;
+  color: black;
+  opacity: 0.3;
+}
+.pcard {
+  opacity: 0;
+  transition: all 1s;
+  transform: translateY(10%);
+}
+.pcarde {
+  opacity: 0;
+  transition: all 1s;
+  transform: translateY(10%);
+}
+.sh {
+  opacity: 1;
+  transform: translateY(0%);
+  transform: translateX(0%);
+}
+
+.tr {
+  animation: to-right 500ms;
+}
+.tl {
+  animation: to-left 500ms;
+}
+
+@keyframes to-right {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(250%);
+  }
+}
+@keyframes to-left {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-250%);
+  }
+}
+
+.grid-c {
+  overscroll-behavior-inline: contain;
+}
