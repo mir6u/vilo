@@ -12,12 +12,12 @@ const page = async () => {
   const session = await getServerSession(authOptions);
   return (
     <>
-        <Sidebar />
-        <main className="flex min-h-screen flex-col items-center p-20 text-white">
-          {<ProfilePage/> || session!.user?.name}
-          
-          <Link href={"/api/auth/signout"}>UwU</Link>
-        </main>
+      <Sidebar />
+      <main className="flex min-h-screen flex-col items-center p-20 text-white">
+        {<ProfilePage />}
+
+        <Link href={"/api/auth/signout"}>UwU</Link>
+      </main>
     </>
   );
 };

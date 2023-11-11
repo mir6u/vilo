@@ -38,12 +38,13 @@ model Session {
 }
 
 model User {
-  id             String    @id @default(cuid())
+  uid             BigInt    @id @default(autoincrement())
   name           String?
   email          String?   @unique
   emailVerified  DateTime?
   hashedPassword String?
   image          String?
+  id            String    @unique @default(cuid())
   accounts       Account[]
   sessions       Session[]
 }

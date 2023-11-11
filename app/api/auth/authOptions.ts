@@ -23,14 +23,10 @@ export const authOptions: NextAuthOptions = {
           type: "password",
           placeholder: "Password",
         },
-        name: {
-          label: "Name",
-          type: "name",
-          placeholder: "e",
-        },
+        
       },
       async authorize(credentials, req) {
-        if (!credentials?.email || !credentials.password || !credentials.name) return null;
+        if (!credentials?.email || !credentials.password) return null;
 
         const user = await prisma.user.findUnique({
           where: { email: credentials.email },
@@ -56,10 +52,6 @@ export const authOptions: NextAuthOptions = {
     strategy: "jwt",
   },
   pages: {
-    signIn: '',
-    signOut: '',
-    error: '', // Error code passed in query string as ?error=
-    verifyRequest: '/auth/verify-request', // (used for check email message)
-    newUser: '../profile' // New users will be directed here on first sign in (leave the property out if not of interest)
+    signIn: '/signin',
   }
 };

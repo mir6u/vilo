@@ -34,7 +34,7 @@ const Hero = () => {
       </p>
       <Link
         className="bg-[#16161D] flex flex-row hover:scale-110 transition-all hover:bg-opacity-100 hover:bg-transparent border-[#363642] hover:border-[2px] duration-200 mt-4 rounded-lg text-white items-center"
-        href="/register"
+        href="/signin"
       >
         <p className="font-bold flex flex-row items-center py-4 px-20">
           Get Started
