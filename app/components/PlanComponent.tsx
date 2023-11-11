@@ -4,7 +4,7 @@ import React from "react";
 interface Props {
   title: string;
   description: string[];
-  price: number;
+  price: any;
 }
 
 const PlanComponent = ({ title, description, price }: Props) => {
@@ -13,7 +13,7 @@ const PlanComponent = ({ title, description, price }: Props) => {
       <div className="bg-gradient-to-tr  persp scale-[0.97] duration-300 hover:scale-100 flex-1 snap-start p-10 from-blue-400 via-blue-300 rounded-xl  to-purple-300">
         <div className="mb-6">
           <p className="font-bold text-[1.7rem]">{title}💎</p>
-          <p className="font-medium text-lg">${price} / Lifetime</p>
+          <p className="font-medium text-lg">{price} / Lifetime</p>
         </div>
         <div className="flex  mb-16 flex-col gap-1">
           {description.map((value, index) => {

@@ -8,7 +8,7 @@ const prisma = new PrismaClient();
 const schema = z.object({
   email: z.string().email(),
   password: z.string().min(5),
-  name: z.string()
+  name: z.string(),
 });
 
 export async function POST(request: NextRequest) {
@@ -20,23 +20,26 @@ export async function POST(request: NextRequest) {
       status: 400,
     });
 
-  const user = await prisma.user.findUnique({
-    where: { email: body.email },
-  });
+    const user = await prisma.user.findFirst({
+      where: {
+        OR: [
+          { email: body.email },
+          { name: body.name }
+        ]
+      }
+    });
+    
 
   if (user)
-    return NextResponse.json(
-      { error: "User already exists" },
-      { status: 400 }
-    );
+    return NextResponse.json({ error: "User already exists" }, { status: 400 });
 
   const hashedPassword = await bcrypt.hash(body.password, 10);
-  const newUser = await prisma.user.create({ 
+  const newUser = await prisma.user.create({
     data: {
       email: body.email,
-      hashedPassword,
-      name: body.name
-    }
+      hashedPassword: hashedPassword,
+      name: body.name,
+    },
   });
 
   return NextResponse.json({ email: newUser.email, name: newUser.name });

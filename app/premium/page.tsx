@@ -6,7 +6,6 @@ import Sidebar from "../components/Sidebar";
 const page = () => {
   return (
     <>
-    <Sidebar/>
     <main className="flex lg:place-content-center min-h-screen  text-white flex-col items-center justify-between p-10">
       <div className="max-w-screen-2xl justify-center w-screen flex flex-col items-center">
         <div className="flex mb-8 justify-center items-center gap-2 max-w-4xl">

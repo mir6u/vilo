@@ -39,7 +39,7 @@ model Session {
 
 model User {
   uid             BigInt    @id @default(autoincrement())
-  name           String?
+  name           String?    @unique
   email          String?   @unique
   emailVerified  DateTime?
   hashedPassword String?

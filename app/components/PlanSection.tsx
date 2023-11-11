@@ -12,18 +12,19 @@ const plans = [
       "Special panel & chats",
       "More",
     ],
-    price: 2.99,
+    price: "$2.99",
   },
   {
     title: "Premium Plan",
     description: [
       "Background video",
+      "Add more links",
       "Color changes",
       "Premium Badge",
       "Special panel & chats",
       "More + Everything from Basic",
     ],
-    price: 7.99,
+    price: "$7.99",
   },
   {
     title: "Elite Plan",
@@ -34,14 +35,25 @@ const plans = [
       "Special panel & chats",
       "More + Everything from Premium",
     ],
-    price: 12.99,
+    price: "$12.99",
+  },
+  {
+    title: "Custom plan",
+    description: [
+      "Background video",
+      "Color changes",
+      "Elite +Badge",
+      "Special panel & chats",
+      "More + Everything from Premium",
+    ],
+    price: 'Custom price',
   },
 ];
 
 const PlanSection = () => {
   return (
     <>
-      <div className="lg:flex  gap-3 lg:snap-none  lg:overflow-hidden snap-x snap-mandatory    overflow-x-scroll grid-c  grid-flow-col  ">
+      <div className="2xl:flex lg:grid grid-cols-2 gap-3  grid-c   ">
         {plans.map((plan) => {
           return (
             <PlanComponent

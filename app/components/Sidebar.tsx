@@ -13,9 +13,7 @@ const Sidebar = () => {
   const pathname = usePathname();
   const ref1 = useRef<HTMLButtonElement>(null);
   const { status, data: session } = useSession();
-  if (status === "unauthenticated") {
-    router.push("/");
-  }
+  
   const buttons = [
     {
       key: 1,
@@ -184,7 +182,7 @@ const Sidebar = () => {
   return (
     <>
       <nav className="bg-black z-50 flex lg:hidden justify-between items-center px-12 py-4">
-        <p className="text-sm font-bold font-mono text-white flex items-center gap-4">
+      <p className="text-sm font-bold font-mono text-white flex items-center gap-4">
           <span className="h-2 w-2 font-bold z-10 bg-gradient-to-r from-cyan-500 to-purple-300 via-blue-600 rounded-full"></span>
           Vilo
         </p>
@@ -257,7 +255,7 @@ l57 -27 810 0 c924 0 870 -5 969 86 74 67 100 129 101 234 0 68 -4 89 -28 137
         </div>
       )}
       <div className="hidden lg:block">
-        <aside className="fixed bg-[#16161D] items-center p-1.5 text-white border transform left-8 top-[50%] translate-y-[-50%] justify-between flex flex-col border-slate-100/5 rounded-full gap-5">
+        <aside className="fixed bg-black border-white items-center p-1.5 text-white border transform left-8 top-[50%] translate-y-[-50%] justify-between flex flex-col border-slate-100/5 rounded-full gap-5">
           {buttons.map((button, index) => {
             return (
               <>
