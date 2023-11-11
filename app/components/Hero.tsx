@@ -14,7 +14,7 @@ const Hero = () => {
   }
   console.log(status)
   return (
-    <div className="flex max-w-5xl flex-col items-center text-center">
+    <div className="flex max-w-5xl fade flex-col items-center text-center">
       <p className="text-white text-6xl font-bold font-mono">vilo.fun</p>
       <p className="text-transparent mt-4 from-cyan-200 via-cyan-400 to-cyan-700 text-xs font-bold bg-clip-text bg-gradient-to-r w-96">
         <TypeAnimation
