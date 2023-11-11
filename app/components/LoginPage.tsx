@@ -4,6 +4,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { signIn } from "next-auth/react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 interface Props {
   className?: string;
@@ -14,6 +15,7 @@ const LoginPage = (props: Props) => {
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
   const [error, setError] = useState("");
+  const router = useRouter()
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
@@ -28,6 +30,9 @@ const LoginPage = (props: Props) => {
       redirect: false,
     });
     setError(response?.error)
+    if (response?.ok) {
+      router.push('/profile')
+    }
   };
 
   return (
