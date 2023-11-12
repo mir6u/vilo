@@ -30,9 +30,14 @@ CREATE TABLE "Session" (
 CREATE TABLE "User" (
     "uid" BIGSERIAL NOT NULL,
     "name" TEXT,
+    "displayName" TEXT,
     "email" TEXT,
     "emailVerified" TIMESTAMP(3),
+    "discordID" TEXT,
     "hashedPassword" TEXT,
+    "music" TEXT,
+    "background" TEXT,
+    "bio" TEXT,
     "image" TEXT,
     "id" TEXT NOT NULL,
 
@@ -44,6 +49,23 @@ CREATE TABLE "VerificationToken" (
     "identifier" TEXT NOT NULL,
     "token" TEXT NOT NULL,
     "expires" TIMESTAMP(3) NOT NULL
+);
+
+-- CreateTable
+CREATE TABLE "Socials" (
+    "id" TEXT NOT NULL,
+    "Instagram" TEXT,
+    "Twitter" TEXT,
+    "Twitch" TEXT,
+    "YouTube" TEXT,
+    "Github" TEXT,
+    "Discord" TEXT,
+    "TikTok" TEXT,
+    "Telegram" TEXT,
+    "PayPal" TEXT,
+    "userId" TEXT,
+
+    CONSTRAINT "Socials_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateIndex
@@ -67,8 +89,14 @@ CREATE UNIQUE INDEX "VerificationToken_token_key" ON "VerificationToken"("token"
 -- CreateIndex
 CREATE UNIQUE INDEX "VerificationToken_identifier_token_key" ON "VerificationToken"("identifier", "token");
 
+-- CreateIndex
+CREATE UNIQUE INDEX "Socials_id_key" ON "Socials"("id");
+
 -- AddForeignKey
 ALTER TABLE "Account" ADD CONSTRAINT "Account_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "Session" ADD CONSTRAINT "Session_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "Socials" ADD CONSTRAINT "Socials_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE SET NULL ON UPDATE CASCADE;

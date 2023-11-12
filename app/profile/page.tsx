@@ -10,9 +10,11 @@ import { useRouter } from "next/navigation";
 
 const page = async () => {
   const session = await getServerSession(authOptions);
-  
+
   return (
     <>
+      <Sidebar />
+      <NavBar />
       <main className="flex min-h-screen flex-col items-center p-20 text-white">
         {<ProfilePage />}
         <Link href={"/api/auth/signout"}>UwU</Link>

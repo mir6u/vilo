@@ -7,31 +7,52 @@ const prisma = new PrismaClient();
 
 const schema = z.object({
   email: z.string().email(),
-  password: z.string().min(5),
+  password: z.string().min(8),
   name: z.string(),
 });
 
 export async function POST(request: NextRequest) {
   const body = await request.json();
 
+  if (!body.name || !body.password || !body.email) {
+    return NextResponse.json({error: "Fill all the fields"}, {
+      status: 400,
+    });
+  }
+
+  if (body.password.length < 8) {
+    return NextResponse.json({error: "Password must be at least 8 characters long"}, {
+      status: 400,
+    });
+  }
+
   const validation = schema.safeParse(body);
   if (!validation.success)
-    return NextResponse.json(validation.error.errors, {
+    return NextResponse.json({error: "Invalid username or email"}, {
       status: 400,
     });
 
-    const user = await prisma.user.findFirst({
-      where: {
-        OR: [
-          { email: body.email },
-          { name: body.name }
-        ]
-      }
-    });
-    
+  const user = await prisma.user.findFirst({
+    where: {
+      email: body.email,
+    },
+  });
+  const namedUser = await prisma.user.findFirst({
+    where: {
+      name: body.name,
+    },
+  });
 
-  if (user)
-    return NextResponse.json({ error: "User already exists" }, { status: 400 });
+  if (namedUser || user) {
+    return NextResponse.json({error: "User already exists"}, {
+      status: 400,
+    });
+  }
+  if (namedUser) {
+    return NextResponse.json({error: "This username is taken"}, {
+      status: 400,
+    });
+  }
 
   const hashedPassword = await bcrypt.hash(body.password, 10);
   const newUser = await prisma.user.create({

@@ -24,32 +24,37 @@ export const authOptions: NextAuthOptions = {
           type: "password",
           placeholder: "Password",
         },
-        
       },
       async authorize(credentials, req) {
         if (!credentials?.email || !credentials.password) {
-          throw new Error( JSON.stringify({ error: "Fill both fields", status: false }))
+          const errorOutput = '{"error":"Fill both fields","status":400}';
+          const parsedError = JSON.parse(errorOutput).error;
+          throw new Error(parsedError);
         }
-      
+
         const user = await prisma.user.findUnique({
           where: { email: credentials.email },
         });
-      
+
         if (!user) {
-          throw new Error("User not found");
+          const errorOutput = '{"error":"User not found","status":400}';
+          const parsedError = JSON.parse(errorOutput).error;
+          throw new Error(parsedError);
         }
-      
+
         const passwordsMatch = await bcrypt.compare(
           credentials.password,
           user.hashedPassword!
         );
-      
+
         if (!passwordsMatch) {
-          throw new Error("Wrong password or email");
+          const errorOutput = '{"error":"Wrong password or email","status":400}';
+          const parsedError = JSON.parse(errorOutput).error;
+          throw new Error(parsedError);
         }
-      
+
         return user;
-      }
+      },
     }),
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID!,
@@ -60,6 +65,6 @@ export const authOptions: NextAuthOptions = {
     strategy: "jwt",
   },
   pages: {
-    signIn: '/signin',
-  }
+    signIn: "/signin",
+  },
 };

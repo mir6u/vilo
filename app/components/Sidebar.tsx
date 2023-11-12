@@ -255,7 +255,7 @@ l57 -27 810 0 c924 0 870 -5 969 86 74 67 100 129 101 234 0 68 -4 89 -28 137
         </div>
       )}
       <div className="hidden lg:block">
-        <aside className="fixed bg-black border-white items-center p-1.5 text-white border transform left-8 top-[50%] translate-y-[-50%] justify-between flex flex-col border-slate-100/5 rounded-full gap-5">
+        <aside className="fixed bg-[#16161D] items-center p-1.5 text-white border transform left-8 top-[50%] translate-y-[-50%] justify-between flex flex-col border-slate-100/5 rounded-full gap-5">
           {buttons.map((button, index) => {
             return (
               <>
