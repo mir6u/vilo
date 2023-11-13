@@ -44,7 +44,7 @@ const page = async ({ params: { id } }: Props) => {
               backgroundSize: "cover",
               height: "100%",
               backgroundRepeat: "no-repeat",
-              backgroundImage: `url(https://cdn.discordapp.com/attachments/1101980164226809897/1173363092613251174/jet.gif?ex=6563ae89&is=65513989&hm=1c81e0436078759ae09af79858d431a2b416f293844cba822090e98c0b697208&)`,
+              backgroundImage: `url(https://cdn.discordapp.com/attachments/979368275853070336/1173368457513934898/plane.gif?ex=6563b388&is=65513e88&hm=8718bbfdc646088805b29cba387585d030a35fa5af1a5808bc5022c94b27d12e&)`,
             }}
             className="absolute inset-0"
           ></div>

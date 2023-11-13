@@ -85,7 +85,7 @@ const LoginPage = (props: Props) => {
           </p>
           <button
             type="submit"
-            className="text-white hover:bg-opacity-80 active:bg-opacity-90 bg-black py-4 rounded-xl font-mono text-xl"
+            className="text-white hover:bg-opacity-90 active:bg-opacity-80 bg-black py-4 rounded-xl font-mono text-xl"
           >
             Log In
           </button>
