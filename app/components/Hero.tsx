@@ -12,8 +12,8 @@ const Hero = () => {
   return (
     <div className="relative 100vh  100wv">
       <div className="flex max-w-5xl fade flex-col items-center  text-center">
-        <p className="text-white text-6xl font-bold font-mono">yeh.lol</p>
-        <p className="text-transparent mt-4 from-cyan-200 via-cyan-400 to-cyan-700 text-xs font-bold bg-clip-text bg-gradient-to-r w-96">
+        <p className="text-white text-6xl lg:text-8xl font-bold font-mono">yeh.lol</p>
+        <p className="text-transparent mt-4 from-pink-300 via-cyan-400 to-purple-500 text-xs lg:text-base font-bold bg-clip-text bg-gradient-to-r w-96">
           <TypeAnimation
             sequence={[
               "Customise your profile!",
@@ -24,7 +24,7 @@ const Hero = () => {
               1000,
             ]}
             wrapper="span"
-            speed={70}
+            speed={50}
             style={{ fontSize: "2em", display: "inline-block" }}
             repeat={Infinity}
           />
@@ -33,7 +33,7 @@ const Hero = () => {
           className="bg-[#16161D] flex flex-row hover:scale-110 transition-all hover:bg-opacity-100 hover:bg-transparent border-[#363642] hover:border-[2px] duration-200 mt-4 rounded-lg text-white items-center"
           href="/register"
         >
-          <p className="font-bold flex flex-row items-center py-4 px-20">
+          <p className="font-bold text-base lg:text-xl flex flex-row items-center py-4 px-14 lg:px-20">
             Get Started
             <span className="ml-1">
               <svg
@@ -57,16 +57,16 @@ const Hero = () => {
         <div className="flex items-center justify-center flex-col">
           <div className="text-white">
             <div className="text-white m-4 font-mono">
-              <p className="text-4xl">Users</p>
-              <p className="text-xl">&#60;100</p>
+              <p className="lg:text-6xl text-4xl">Users</p>
+              <p className="text-xl lg:text-3xl">&#60;100</p>
             </div>
             <div className="text-white mb-4 font-mono">
-              <p className="text-4xl">Links</p>
-              <p className="text-xl">&#60;100</p>
+              <p className="lg:text-6xl text-4xl">Links</p>
+              <p className="text-xl lg:text-3xl">&#60;100</p>
             </div>
             <div className="text-white font-mono">
-              <p className="text-4xl">Team</p>
-              <p className="text-xl">1 Person</p>
+              <p className="lg:text-6xl text-4xl">Team</p>
+              <p className="text-xl lg:text-3xl">1 Person</p>
             </div>
           </div>
         </div>

@@ -6,7 +6,7 @@ import { useSession } from "next-auth/react";
 const NavBar = () => {
   const { status, data: session } = useSession();
   return (
-    <div className="hidden fade bg-black justify-between items-center p-3 lg:flex">
+    <div className="hidden fade bg-black lg:bg-transparent justify-between items-center p-3 lg:flex">
       <div>
         <Link href={"/"}>
           <p className="text-2xl font-bold font-mono text-white flex items-center gap-4">
