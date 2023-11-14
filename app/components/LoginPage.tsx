@@ -21,7 +21,6 @@ const LoginPage = (props: Props) => {
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
-    
 
     const response: any = await signIn("credentials", {
       email,
@@ -36,7 +35,6 @@ const LoginPage = (props: Props) => {
 
   return (
     <>
-      
       <main className="flex min-h-screen flex-col items-center justify-center ">
         <form
           className="flex gap-3 bg-white p-10 rounded-lg flex-col"
@@ -54,8 +52,11 @@ const LoginPage = (props: Props) => {
               vilo.fun/
             </label>
             <input
+              style={{
+                WebkitAppearance: "none",
+              }}
               type="email"
-              className="px-[6.7rem] duration-300 w-full outline-none rounded-lg border-l-8 focus:border-l-cyan-500 border-transparent hover:border-l-gray-300 max-w-[500px] shadow-2xl font-light py-3 text-[#1a1a1a] text-lg"
+              className="lg:pl-[6.7rem] pl-[7.2rem] duration-300 w-full outline-none rounded-lg border-l-8 focus:border-l-cyan-500 border-transparent hover:border-l-gray-300 max-w-[500px] shadow-2xl font-light py-3 text-[#1a1a1a] text-lg"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="email"
@@ -63,6 +64,9 @@ const LoginPage = (props: Props) => {
             />
           </div>
           <input
+            style={{
+              WebkitAppearance: "none",
+            }}
             className="px-2 outline-none duration-300 rounded-lg border-l-8 focus:border-l-purple-300 border-transparent hover:border-l-gray-300 max-w-[500px] shadow-2xl
              font-light py-3 text-[#1a1a1a] text-lg"
             type="password"

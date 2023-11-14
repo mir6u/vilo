@@ -9,7 +9,9 @@ const SocialsComponent = ({ social, socialIcon }: Props) => {
   return (
     <>
       <div className="flex items-center gap-3 justify-center flex-row">
-        <div className=" flex items-center ">{socialIcon}</div>
+        <div className="flex bg-gray-950 justify-center rounded-lg p-2.5 items-center ">
+          {socialIcon}
+        </div>
         <div className="font-mono text-white text-lg font-semibold">
           {social}
         </div>

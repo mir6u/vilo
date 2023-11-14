@@ -1,12 +1,11 @@
 import React from "react";
 import SocialsComponent from "./SocialsComponent";
 import Link from "next/link";
-import Image from "next/image";
 
 const SocialsSection = ({ socials }: any) => {
   return (
     <div className="w-full flex gap-5 flex-col">
-      {socials!.Discord && (
+      {socials?.Discord ? (
         <Link
           className="flex hover:-translate-y-2 duration-300 py-5 shadow-2xl shadow-black bg-[#282b30] rounded-lg px-5 w-full items-center justify-between flex-row"
           href={`https://discord.com/users/${socials?.Discord}`}
@@ -17,8 +16,8 @@ const SocialsSection = ({ socials }: any) => {
               <svg
                 viewBox="0 -28.5 256 256"
                 version="1.1"
-                width={35}
-                height={35}
+                width={30}
+                height={30}
                 xmlns="http://www.w3.org/2000/svg"
                 xmlnsXlink="http://www.w3.org/1999/xlink"
                 preserveAspectRatio="xMidYMid"
@@ -47,8 +46,8 @@ const SocialsSection = ({ socials }: any) => {
             }
           />
         </Link>
-      )}
-      {socials!.Instagram && (
+      ) : null}
+      {socials?.Instagram ? (
         <Link
           className="flex hover:-translate-y-2 duration-300 py-5 shadow-2xl shadow-black bg-[#282b30] rounded-lg px-5 w-full items-center justify-between flex-row"
           href={`https://www.instagram.com/${socials!.Instagram}`}
@@ -57,8 +56,8 @@ const SocialsSection = ({ socials }: any) => {
             social="Instagram"
             socialIcon={
               <svg
-                width="35px"
-                height="35px"
+                width="30px"
+                height="30px"
                 viewBox="0 0 24 24"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -83,7 +82,161 @@ const SocialsSection = ({ socials }: any) => {
             }
           />
         </Link>
-      )}
+      ) : null}
+      {socials?.Twitter ? (
+        <Link
+          href={`https://twitter.com/${socials!.Twitter}`}
+          className="flex hover:-translate-y-2 duration-300 py-5 shadow-2xl shadow-black bg-[#282b30] rounded-lg px-5 w-full items-center justify-between flex-row"
+        >
+          <SocialsComponent
+            social="X.com"
+            socialIcon={
+              <svg
+                version="1.0"
+                xmlns="http://www.w3.org/2000/svg"
+                width="30px"
+                height="30px"
+                viewBox="0 0 64.000000 64.000000"
+                preserveAspectRatio="xMidYMid meet"
+              >
+                <g
+                  transform="translate(0.000000,64.000000) scale(0.100000,-0.100000)"
+                  fill="#fff"
+                  stroke="none"
+                >
+                  <path
+                    d="M86 528 c32 -46 82 -116 111 -157 29 -41 53 -78 53 -82 0 -5 -50 -65
+-111 -134 -102 -116 -108 -125 -82 -124 23 0 45 21 123 110 52 60 97 109 100
+109 3 -1 39 -50 80 -110 l75 -110 89 0 c69 0 86 3 79 13 -35 45 -223 316 -223
+321 0 4 47 60 104 124 90 100 101 117 83 120 -22 4 -55 -27 -163 -152 l-51
+-59 -74 107 -74 106 -88 0 -88 0 57 -82z m101 30 c18 -21 330 -457 347 -485 5
+-10 -3 -13 -31 -13 l-38 0 -180 252 c-99 138 -181 255 -183 260 -2 4 12 8 30
+8 23 0 41 -8 55 -22z"
+                  />
+                </g>
+              </svg>
+            }
+          />
+        </Link>
+      ) : null}
+      {socials?.Telegram ? (
+        <Link
+          href={`https://t.me/${socials!.Telegram}`}
+          className="flex hover:-translate-y-2 duration-300 py-5 shadow-2xl shadow-black bg-[#282b30] rounded-lg px-5 w-full items-center justify-between flex-row"
+        >
+          <SocialsComponent
+            social="Telegram"
+            socialIcon={
+              <svg
+                fill="#fff"
+                width="30px"
+                height="30px"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="m20.665 3.717-17.73 6.837c-1.21.486-1.203 1.161-.222 1.462l4.552 1.42 10.532-6.645c.498-.303.953-.14.579.192l-8.533 7.701h-.002l.002.001-.314 4.692c.46 0 .663-.211.921-.46l2.211-2.15 4.599 3.397c.848.467 1.457.227 1.668-.785l3.019-14.228c.309-1.239-.473-1.8-1.282-1.434z" />
+              </svg>
+            }
+          />
+        </Link>
+      ) : null}
+      {socials?.Github ? (
+        <Link
+          href={`https://www.github.com/@${socials!.Github}`}
+          className="flex hover:-translate-y-2 duration-300 py-5 shadow-2xl shadow-black bg-[#282b30] rounded-lg px-5 w-full items-center justify-between flex-row"
+        >
+          <SocialsComponent
+            social="GitHub"
+            socialIcon={
+              <svg
+                width="30px"
+                height="30px"
+                viewBox="0 0 48 48"
+                version="1.1"
+                id="Shopicons"
+                xmlns="http://www.w3.org/2000/svg"
+                x="0"
+                y="0"
+                xmlSpace="preserve"
+                fill="#fff"
+              >
+                <g id="github_00000178918564504449926280000008731996709616696990_">
+                  <path d="M0 .011h48v48H0v-48z" fill="none" />
+
+                  <path d="M30 44.004v-10c0-.884-.197-1.722-.542-2.479.825-.167 1.65-.358 2.472-.601 2.527-.746 6.154-3.839 7.226-6.863 1.188-3.356 1.188-6.76 0-10.116l-.001-.001c-.213-.603-.537-1.211-.998-1.868.848-3.154.253-5.792.225-5.915l-.365-1.564-1.606.019c-.15.002-3.48.063-6.724 1.955a29.635 29.635 0 0 0-11.371 0c-3.243-1.892-6.573-1.953-6.724-1.955l-1.608-.019-.365 1.564c-.028.123-.623 2.761.225 5.915-.461.657-.785 1.266-.999 1.869-1.187 3.356-1.187 6.76.001 10.117 1.07 3.023 4.697 6.116 7.225 6.862.822.243 1.647.434 2.472.601A5.946 5.946 0 0 0 18 34.004v1.281c-.062.036-.127.065-.187.108-.289.211-2.869 1.967-5.505.09-.93-.946-1.386-1.639-1.826-2.309-.988-1.5-1.841-2.586-4.588-3.96a2 2 0 1 0-1.789 3.579c1.991.995 2.341 1.525 3.035 2.581.515.781 1.155 1.754 2.445 3.044l.215.186c1.692 1.27 3.447 1.723 5.053 1.723A9.286 9.286 0 0 0 18 39.76v4.253l12-.009z" />
+                </g>
+              </svg>
+            }
+          />
+        </Link>
+      ) : null}
+      {socials?.TikTok ? (
+        <Link
+          href={`https://www.tiktok.com/@${socials!.TikTok}`}
+          className="flex hover:-translate-y-2 duration-300 py-5 shadow-2xl shadow-black bg-[#282b30] rounded-lg px-5 w-full items-center justify-between flex-row"
+        >
+          <SocialsComponent
+            social="TikTok"
+            socialIcon={
+              <svg
+                fill="#fff"
+                width="30px"
+                height="30px"
+                viewBox="0 0 32 32"
+                version="1.1"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>tiktok</title>
+                <path d="M16.656 1.029c1.637-0.025 3.262-0.012 4.886-0.025 0.054 2.031 0.878 3.859 2.189 5.213l-0.002-0.002c1.411 1.271 3.247 2.095 5.271 2.235l0.028 0.002v5.036c-1.912-0.048-3.71-0.489-5.331-1.247l0.082 0.034c-0.784-0.377-1.447-0.764-2.077-1.196l0.052 0.034c-0.012 3.649 0.012 7.298-0.025 10.934-0.103 1.853-0.719 3.543-1.707 4.954l0.020-0.031c-1.652 2.366-4.328 3.919-7.371 4.011l-0.014 0c-0.123 0.006-0.268 0.009-0.414 0.009-1.73 0-3.347-0.482-4.725-1.319l0.040 0.023c-2.508-1.509-4.238-4.091-4.558-7.094l-0.004-0.041c-0.025-0.625-0.037-1.25-0.012-1.862 0.49-4.779 4.494-8.476 9.361-8.476 0.547 0 1.083 0.047 1.604 0.136l-0.056-0.008c0.025 1.849-0.050 3.699-0.050 5.548-0.423-0.153-0.911-0.242-1.42-0.242-1.868 0-3.457 1.194-4.045 2.861l-0.009 0.030c-0.133 0.427-0.21 0.918-0.21 1.426 0 0.206 0.013 0.41 0.037 0.61l-0.002-0.024c0.332 2.046 2.086 3.59 4.201 3.59 0.061 0 0.121-0.001 0.181-0.004l-0.009 0c1.463-0.044 2.733-0.831 3.451-1.994l0.010-0.018c0.267-0.372 0.45-0.822 0.511-1.311l0.001-0.014c0.125-2.237 0.075-4.461 0.087-6.698 0.012-5.036-0.012-10.060 0.025-15.083z"></path>
+              </svg>
+            }
+          />
+        </Link>
+      ) : null}
+      {socials?.YouTube ? (
+        <Link
+          href={`https://www.youtube.com/@${socials!.YouTube}`}
+          className="flex hover:-translate-y-2 duration-300 py-5 shadow-2xl shadow-black bg-[#282b30] rounded-lg px-5 w-full items-center justify-between flex-row"
+        >
+          <SocialsComponent
+            social="YouTube"
+            socialIcon={
+              <svg
+                width="30px"
+                height="30px"
+                viewBox="0 -3 20 20"
+                version="1.1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlnsXlink="http://www.w3.org/1999/xlink"
+              >
+                <title>youtube [#168]</title>
+                <desc>Created with Sketch.</desc>
+                <defs></defs>
+                <g
+                  id="Page-1"
+                  stroke="none"
+                  stroke-width="1"
+                  fill="none"
+                  fill-rule="evenodd"
+                >
+                  <g
+                    id="Dribbble-Light-Preview"
+                    transform="translate(-300.000000, -7442.000000)"
+                    fill="#fff"
+                  >
+                    <g id="icons" transform="translate(56.000000, 160.000000)">
+                      <path
+                        d="M251.988432,7291.58588 L251.988432,7285.97425 C253.980638,7286.91168 255.523602,7287.8172 257.348463,7288.79353 C255.843351,7289.62824 253.980638,7290.56468 251.988432,7291.58588 M263.090998,7283.18289 C262.747343,7282.73013 262.161634,7282.37809 261.538073,7282.26141 C259.705243,7281.91336 248.270974,7281.91237 246.439141,7282.26141 C245.939097,7282.35515 245.493839,7282.58153 245.111335,7282.93357 C243.49964,7284.42947 244.004664,7292.45151 244.393145,7293.75096 C244.556505,7294.31342 244.767679,7294.71931 245.033639,7294.98558 C245.376298,7295.33761 245.845463,7295.57995 246.384355,7295.68865 C247.893451,7296.0008 255.668037,7296.17532 261.506198,7295.73552 C262.044094,7295.64178 262.520231,7295.39147 262.895762,7295.02447 C264.385932,7293.53455 264.28433,7285.06174 263.090998,7283.18289"
+                        id="youtube-[#168]"
+                      ></path>
+                    </g>
+                  </g>
+                </g>
+              </svg>
+            }
+          />
+        </Link>
+      ) : null}
     </div>
   );
 };

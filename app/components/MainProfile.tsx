@@ -1,13 +1,14 @@
-"use client";
+"use client"
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { TypeAnimation } from "react-type-animation";
-interface Props {
+
+interface MainProfileProps {
   user: any;
-  bio: any;
 }
-const MainProfile = ({ user, bio }: Props) => {
+
+const MainProfile = ({ user }: MainProfileProps) => {
   return (
     <div className="p-10 mb-14 rounded-lg shadow-black shadow-xl bg-[#282b30] flex flex-col items-center justify-center ">
       <div className="not-last-child:mb-10">
@@ -26,14 +27,14 @@ const MainProfile = ({ user, bio }: Props) => {
       <div className="not-last-child:mb-8">
         <div className="justify-center  items-center flex  ">
           <h2
-            className="text-lg mt-3 text-white font-semibold"
+            className="text-3xl mt-3 text-white font-semibold"
             style={{
               backgroundImage: `url('https://media.discordapp.net/attachments/987149728800198686/991834200309248070/sparkle.gif')`,
               filter: `drop-shadow(10px 10px 10px #ffffff)`,
               color: "white",
             }}
           >
-            {user.name || user.displayName}
+            {user?.name || user?.displayName}
           </h2>
           {/* <span className="cursor-pointer text-xl" title="Verified">
                         <div className="verified-icon">
@@ -66,7 +67,7 @@ const MainProfile = ({ user, bio }: Props) => {
         </div>
         <Link
           href={`/${user?.name}`}
-          className="text-md text-white font-semibold gap-1 flex flex-row items-center justify-center"
+          className="text-lg text-white font-semibold gap-1 flex flex-row items-center justify-center"
         >
           <span className="h-3 w-3 text-xs font-semibold z-10 bg-gradient-to-r from-cyan-500 to-purple-300 via-blue-600 rounded-full"></span>
           vilo.fun/{user?.name}
@@ -77,7 +78,7 @@ const MainProfile = ({ user, bio }: Props) => {
           <p className="text-[#798080] text-xl font-bold bg-clip-text bg-gradient-to-r">
             <TypeAnimation
               sequence={[
-                bio,
+                user?.bio,
                 3000,
                 '',
                 100,
