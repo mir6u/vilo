@@ -12,7 +12,7 @@ const Hero = () => {
   return (
     <div className="relative 100vh  100wv">
       <div className="flex max-w-5xl fade flex-col items-center  text-center">
-        <p className="text-white text-6xl font-bold font-mono">vilo.fun</p>
+        <p className="text-white text-6xl font-bold font-mono">yeh.lol</p>
         <p className="text-transparent mt-4 from-cyan-200 via-cyan-400 to-cyan-700 text-xs font-bold bg-clip-text bg-gradient-to-r w-96">
           <TypeAnimation
             sequence={[
@@ -72,7 +72,7 @@ const Hero = () => {
         </div>
       </div>
       <p className="fixed text-xs lg:text-lg text-white translate-x-[-50%] left-[50%] bottom-3">
-        © 2023 <span className="font-mono font-semibold ">vilo.fun</span> - All
+        © 2023 <span className="font-mono font-semibold ">yeh.lol</span> - All
         Rights Reserved.
       </p>
     </div>

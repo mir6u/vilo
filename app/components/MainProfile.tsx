@@ -71,7 +71,7 @@ const MainProfile = ({ user }: MainProfileProps) => {
           className="text-lg text-white font-semibold gap-1 flex flex-row items-center justify-center"
         >
           <span className="h-3 w-3 text-xs font-semibold z-10 bg-gradient-to-r from-cyan-500 to-purple-300 via-blue-600 rounded-full"></span>
-          vilo.fun/{user?.name}
+          yeh.lol/{user?.name}
         </Link>
       </div>
       <div className="not-last-child:mb-8">

@@ -8,9 +8,7 @@ const SignInPage = () => {
     <>
       <Sidebar />
       <NavBar />
-      
-        <LoginPage />
-      
+      <LoginPage />
     </>
   );
 };

@@ -72,14 +72,14 @@ const RegisterPage = () => {
                 htmlFor=""
               >
                 <span className="h-3 w-3 font-bold z-10 bg-gradient-to-r from-cyan-500 to-purple-300 via-blue-600 rounded-full"></span>
-                vilo.fun/
+                yeh.lol/
               </label>
               <input
                 style={{
                   WebkitAppearance: "none",
                 }}
                 type="text"
-                className="pl-[7.3rem] lg:pl-[6.7rem] duration-300 w-full outline-none rounded-lg border-l-8 focus:border-l-cyan-500 border-transparent hover:border-l-gray-300 max-w-full shadow-lg font-light py-3 text-[#1a1a1a] text-lg"
+                className="pl-[6.7rem] lg:pl-[6.1rem] duration-300 w-full outline-none rounded-lg border-l-8 focus:border-l-cyan-500 border-transparent hover:border-l-gray-300 max-w-full shadow-lg font-light py-3 text-[#1a1a1a] text-lg"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="username"

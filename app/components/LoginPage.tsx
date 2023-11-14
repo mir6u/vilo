@@ -49,7 +49,7 @@ const LoginPage = (props: Props) => {
               htmlFor=""
             >
               <span className="h-3 w-3 font-bold z-10 bg-gradient-to-r from-cyan-500 to-purple-300 via-blue-600 rounded-full"></span>
-              vilo.fun/
+              yeh.lol
             </label>
             <input
               style={{

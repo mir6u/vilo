@@ -11,7 +11,7 @@ const NavBar = () => {
         <Link href={"/"}>
           <p className="text-2xl font-bold font-mono text-white flex items-center gap-4">
             <span className="h-4 w-4 font-bold z-10 bg-gradient-to-r from-cyan-500 to-purple-300 via-blue-600 rounded-full"></span>
-            Vilo
+            Yeh
           </p>
         </Link>
       </div>

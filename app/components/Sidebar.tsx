@@ -184,7 +184,7 @@ const Sidebar = () => {
       <nav className="bg-black z-50 flex lg:hidden justify-between items-center px-12 py-4">
       <p className="text-sm font-bold font-mono text-white flex items-center gap-4">
           <span className="h-2 w-2 font-bold z-10 bg-gradient-to-r from-cyan-500 to-purple-300 via-blue-600 rounded-full"></span>
-          Vilo
+          Yeh
         </p>
         <button
           onClick={() => {
