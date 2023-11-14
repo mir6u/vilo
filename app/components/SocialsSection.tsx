@@ -50,7 +50,7 @@ const SocialsSection = ({ socials }: any) => {
       {socials?.Instagram ? (
         <Link
           className="flex hover:-translate-y-2 duration-300 py-5 shadow-2xl shadow-black bg-[#282b30] rounded-lg px-5 w-full items-center justify-between flex-row"
-          href={`https://www.instagram.com/${socials!.Instagram}`}
+          href={`https://www.instagram.com/${socials?.Instagram}`}
         >
           <SocialsComponent
             social="Instagram"
@@ -85,7 +85,7 @@ const SocialsSection = ({ socials }: any) => {
       ) : null}
       {socials?.Twitter ? (
         <Link
-          href={`https://twitter.com/${socials!.Twitter}`}
+          href={`https://twitter.com/${socials?.Twitter}`}
           className="flex hover:-translate-y-2 duration-300 py-5 shadow-2xl shadow-black bg-[#282b30] rounded-lg px-5 w-full items-center justify-between flex-row"
         >
           <SocialsComponent
@@ -121,7 +121,7 @@ const SocialsSection = ({ socials }: any) => {
       ) : null}
       {socials?.Telegram ? (
         <Link
-          href={`https://t.me/${socials!.Telegram}`}
+          href={`https://t.me/${socials?.Telegram}`}
           className="flex hover:-translate-y-2 duration-300 py-5 shadow-2xl shadow-black bg-[#282b30] rounded-lg px-5 w-full items-center justify-between flex-row"
         >
           <SocialsComponent
@@ -142,7 +142,7 @@ const SocialsSection = ({ socials }: any) => {
       ) : null}
       {socials?.Github ? (
         <Link
-          href={`https://www.github.com/@${socials!.Github}`}
+          href={`https://www.github.com/@${socials?.Github}`}
           className="flex hover:-translate-y-2 duration-300 py-5 shadow-2xl shadow-black bg-[#282b30] rounded-lg px-5 w-full items-center justify-between flex-row"
         >
           <SocialsComponent
@@ -172,7 +172,7 @@ const SocialsSection = ({ socials }: any) => {
       ) : null}
       {socials?.TikTok ? (
         <Link
-          href={`https://www.tiktok.com/@${socials!.TikTok}`}
+          href={`https://www.tiktok.com/@${socials?.TikTok}`}
           className="flex hover:-translate-y-2 duration-300 py-5 shadow-2xl shadow-black bg-[#282b30] rounded-lg px-5 w-full items-center justify-between flex-row"
         >
           <SocialsComponent
@@ -195,7 +195,7 @@ const SocialsSection = ({ socials }: any) => {
       ) : null}
       {socials?.YouTube ? (
         <Link
-          href={`https://www.youtube.com/@${socials!.YouTube}`}
+          href={`https://www.youtube.com/@${socials?.YouTube}`}
           className="flex hover:-translate-y-2 duration-300 py-5 shadow-2xl shadow-black bg-[#282b30] rounded-lg px-5 w-full items-center justify-between flex-row"
         >
           <SocialsComponent
@@ -228,6 +228,50 @@ const SocialsSection = ({ socials }: any) => {
                       <path
                         d="M251.988432,7291.58588 L251.988432,7285.97425 C253.980638,7286.91168 255.523602,7287.8172 257.348463,7288.79353 C255.843351,7289.62824 253.980638,7290.56468 251.988432,7291.58588 M263.090998,7283.18289 C262.747343,7282.73013 262.161634,7282.37809 261.538073,7282.26141 C259.705243,7281.91336 248.270974,7281.91237 246.439141,7282.26141 C245.939097,7282.35515 245.493839,7282.58153 245.111335,7282.93357 C243.49964,7284.42947 244.004664,7292.45151 244.393145,7293.75096 C244.556505,7294.31342 244.767679,7294.71931 245.033639,7294.98558 C245.376298,7295.33761 245.845463,7295.57995 246.384355,7295.68865 C247.893451,7296.0008 255.668037,7296.17532 261.506198,7295.73552 C262.044094,7295.64178 262.520231,7295.39147 262.895762,7295.02447 C264.385932,7293.53455 264.28433,7285.06174 263.090998,7283.18289"
                         id="youtube-[#168]"
+                      ></path>
+                    </g>
+                  </g>
+                </g>
+              </svg>
+            }
+          />
+        </Link>
+      ) : null}
+      {socials?.PayPal ? (
+        <Link
+          href={`https://www.paypal.me/${socials?.PayPal}`}
+          className="flex hover:-translate-y-2 duration-300 py-5 shadow-2xl shadow-black bg-[#282b30] rounded-lg px-5 w-full items-center justify-between flex-row"
+        >
+          <SocialsComponent
+            social="PayPal"
+            socialIcon={
+              <svg
+                width="35px"
+                height="35px"
+                viewBox="-1.5 0 20 20"
+                version="1.1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlnsXlink="http://www.w3.org/1999/xlink"
+              >
+                <title>paypal [#140]</title>
+                <desc>Created with Sketch.</desc>
+                <defs></defs>
+                <g
+                  id="Page-1"
+                  stroke="none"
+                  stroke-width="1"
+                  fill="none"
+                  fill-rule="evenodd"
+                >
+                  <g
+                    id="Dribbble-Light-Preview"
+                    transform="translate(-222.000000, -7559.000000)"
+                    fill="#fff"
+                  >
+                    <g id="icons" transform="translate(56.000000, 160.000000)">
+                      <path
+                        d="M182.475463,7404.9 C181.260804,7410.117 177.555645,7411 172.578656,7411 L171.078137,7419 L173.825411,7419 C174.325918,7419 174.53555,7418.659 174.627828,7418.179 C175.312891,7413.848 175.216601,7414.557 175.278788,7413.879 C175.337966,7413.501 175.664951,7413 176.049108,7413 C179.698098,7413 182.118387,7411.945 182.857614,7408.158 C183.120405,7406.811 183.034145,7405.772 182.475463,7404.9 M171.134306,7410.86 L170.011926,7417 L166.535456,7417 C166.206465,7417 165.954707,7416.598 166.006864,7416.274 L168.602682,7399.751 C168.670887,7399.319 169.045014,7399 169.484337,7399 L175.718111,7399 C179.409228,7399 181.894714,7400.401 181.319983,7404.054 C180.313953,7410.56 174.737157,7410 172.199514,7410 C171.760191,7410 171.203515,7410.428 171.134306,7410.86"
+                        id="paypal-[#140]"
                       ></path>
                     </g>
                   </g>

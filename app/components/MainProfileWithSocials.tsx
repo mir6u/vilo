@@ -9,11 +9,14 @@ interface MainProfileWithSocialsProps {
   socials: any; // Replace with the actual type of socials data
 }
 
-const MainProfileWithSocials = ({ user, socials }: MainProfileWithSocialsProps) => {
+const MainProfileWithSocials = ({
+  user,
+  socials,
+}: MainProfileWithSocialsProps) => {
   const backgroundStyle: any = {
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
-    backgroundImage: `url(https://cdn.discordapp.com/attachments/979368275853070336/1173368457513934898/plane.gif?ex=6563b388&is=65513e88&hm=8718bbfdc646088805b29cba387585d030a35fa5af1a5808bc5022c94b27d12e&)`,
+    backgroundImage: user.background ? `url(${user?.background})` : 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/A_black_image.jpg/800px-A_black_image.jpg?20201103073518' ,
     position: "fixed",
     top: 0,
     left: 0,
@@ -30,7 +33,7 @@ const MainProfileWithSocials = ({ user, socials }: MainProfileWithSocialsProps) 
         <div style={backgroundStyle}></div>
         <main className="relative w-full h-full px-4 py-16 table">
           <div className="align-middle text-center">
-          <div className="rounded-md shadow-4xl w-full mx-auto card animate-slide-up not-last-child:mb-12 max-w-[1100px] mt-14">
+            <div className="rounded-md shadow-4xl w-full mx-auto card animate-slide-up not-last-child:mb-12 max-w-[1100px] mt-14">
               <MainProfile user={user} />
               <SocialsSection socials={socials} />
             </div>

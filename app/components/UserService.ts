@@ -20,6 +20,15 @@ export const findUser = async (id: string): Promise<User | null> => {
       },
     });
 
+    /*await prisma.user.update({
+      where: {
+        id: user?.id
+      },
+      data: {
+        discordID: '964311233362800720',
+        background: 'https://cdn.discordapp.com/attachments/981922767148552252/1174064410403274772/end-of-evangelion_1.png?ex=65663bb0&is=6553c6b0&hm=424ad8f2b07f5d123d0b024c52afd47c7fb746eccefdfc716eeae4a2e0ce8e19&',
+      }
+    })*/
     return user || null;
   } catch (error) {
     console.error("Error in findUser:", error);
@@ -35,6 +44,7 @@ export const findSocials = async (userId: string): Promise<Socials> => {
       },
     });
     
+    
 
     if (!socials) {
       socials = await prisma.socials.create({
@@ -43,6 +53,15 @@ export const findSocials = async (userId: string): Promise<Socials> => {
         },
       });
     }
+
+    /* await prisma.socials.update({
+      where: {
+        id: socials.id
+      },
+      data: {
+        YouTube: 'mirui'
+      }
+    }) */
     
     return socials as Socials;
   } catch (error) {

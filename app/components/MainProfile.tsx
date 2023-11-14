@@ -9,6 +9,7 @@ interface MainProfileProps {
 }
 
 const MainProfile = ({ user }: MainProfileProps) => {
+  console.log(user.image, 'e')
   return (
     <div className="p-10 mb-14 rounded-lg shadow-black shadow-xl bg-[#282b30] flex flex-col items-center justify-center ">
       <div className="not-last-child:mb-10">
@@ -17,7 +18,7 @@ const MainProfile = ({ user }: MainProfileProps) => {
             className="rounded-full border border-black shadow-xl shadow-black"
             width={180}
             height={180}
-            src=""
+            src={user.image ? user.image : ''}
             title="Image"
             alt="Image"
             draggable="false"
@@ -94,13 +95,13 @@ const MainProfile = ({ user }: MainProfileProps) => {
         <div className="flex justify-center items-center space-x-2">
           <div className="text-center">
             <Link
-              href={`https://discord.com/users/${user.discordID}`}
+              href={`https://discord.com/users/${user?.discordID}`}
               target="_blank"
             >
               <Image
                 alt="img"
                 height={300}
-                src={`https://discord.c99.nl/widget/theme-4/${user.discordID}.png`}
+                src={`https://discord.c99.nl/widget/theme-4/${user?.discordID}.png`}
                 width={300}
               />
             </Link>
