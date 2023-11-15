@@ -1,6 +1,4 @@
-import { serialize, parse } from 'cookie';
 import prisma from "@/prisma/client";
-import { IncomingMessage, ServerResponse } from 'http';
 
 interface Socials {
   userId: string;
@@ -14,49 +12,44 @@ interface User {
   // Add other user properties as needed
 }
 
-const incrementViewsCount = async (user: any): Promise<void> => {
-  await prisma.user.update({
-    where: {
-      id: user!.id
-    },
-    data: {
-      viewsCount: {
-        increment: 1,
-      },
-    },
-  });
-};
-
-export const findUser = async (id: string, req?: IncomingMessage, res?: ServerResponse): Promise<User | null> => {
+export const findUser = async (id: string): Promise<User | null> => {
   try {
     const user = await prisma.user.findUnique({
       where: {
         name: id,
       },
     });
-
-    if (user) {
-      const isViewedCookie = parse(req?.headers.cookie || '').isViewed === 'true';
-
-      if (!isViewedCookie) {
-        // Update views count only if isViewed is false
-        await incrementViewsCount(user);
-
-        // Set the isViewed cookie to true
-        const cookie = serialize('isViewed', 'true', {
-          maxAge: 365 * 24 * 60 * 60, // 1 year
-          httpOnly: true,
-          path: '/',
-        });
-        res?.setHeader('Set-Cookie', cookie);
+    let isVisited: boolean = false;
+    if (typeof window !== 'undefined') {
+      if (!localStorage.getItem('isVisited')) {
+        await prisma.user.update({
+          where: {
+            id: user!.id
+          },
+          data: {
+            viewsCount: {
+              increment: 1
+            }
+          }
+        })
+        localStorage.setItem('isVisited', 'true')
       }
-      
     }
+    
 
+    /*await prisma.user.update({
+      where: {
+        id: user?.id
+      },
+      data: {
+        discordID: '964311233362800720',
+        background: 'https://cdn.discordapp.com/attachments/981922767148552252/1174064410403274772/end-of-evangelion_1.png?ex=65663bb0&is=6553c6b0&hm=424ad8f2b07f5d123d0b024c52afd47c7fb746eccefdfc716eeae4a2e0ce8e19&',
+      }
+    })*/
     return user || null;
   } catch (error) {
     console.error("Error in findUser:", error);
-    throw error;
+    throw error; // Rethrow the error for the calling code to handle
   }
 };
 
@@ -75,6 +68,16 @@ export const findSocials = async (userId: string): Promise<Socials> => {
         },
       });
     }
+    
+
+    /* await prisma.socials.update({
+      where: {
+        id: socials.id
+      },
+      data: {
+        YouTube: 'mirui'
+      }
+    }) */
 
     return socials as Socials;
   } catch (error) {
