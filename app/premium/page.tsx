@@ -9,11 +9,11 @@ const page = () => {
     <>
       <Sidebar />
       <NavBar />
-      <main className="flex lg:place-content-center min-h-screen  text-white flex-col items-center justify-between p-10">
+      <main className="flex lg:place-content-center min-h-screen  text-white flex-col items-center justify-between">
         <div className="max-w-screen-2xl justify-center w-screen flex flex-col items-center">
           <div className="flex mb-8 justify-center items-center gap-2 max-w-4xl">
-            <span className="h-5 w-5 font-bold z-10 bg-gradient-to-r from-cyan-500 to-purple-300 via-blue-600 rounded-full"></span>
-            <p className="text-3xl lg:text-6xl font-mono font-bold">
+            <span className="h-10 w-10 font-bold z-10 bg-gradient-to-r from-cyan-500 to-purple-300 via-blue-600 rounded-full"></span>
+            <p className="text-4xl lg:text-8xl font-mono font-bold">
               Yeh.Premium💎
             </p>
           </div>

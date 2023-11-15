@@ -1,12 +1,10 @@
 "use client";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import React from "react";
 import { TypeAnimation } from "react-type-animation";
 
 const Hero = () => {
-  const router = useRouter();
   const { status, data: session } = useSession();
   console.log(status);
   return (

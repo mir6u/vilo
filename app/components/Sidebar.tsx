@@ -243,7 +243,7 @@ l57 -27 810 0 c924 0 870 -5 969 86 74 67 100 129 101 234 0 68 -4 89 -28 137
             {buttons.map((button, index) => {
               return (
                 <SidebarMobileButton
-                  key={index}
+                  key={button.label}
                   pathname={button.pathname}
                   label={button.label}
                   svg={button.svg}
@@ -260,7 +260,7 @@ l57 -27 810 0 c924 0 870 -5 969 86 74 67 100 129 101 234 0 68 -4 89 -28 137
             return (
               <>
                 <LGButton
-                  key={index}
+                  key={button.label}
                   label={button.label}
                   pathname={button.pathname}
                   svg={button.svg}

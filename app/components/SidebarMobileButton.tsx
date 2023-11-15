@@ -10,13 +10,12 @@ interface Props {
   key: any;
 }
 
-const SidebarMobileButton = ({ pathname, svg, label, isRight, key }: Props) => {
+const SidebarMobileButton = ({ pathname, svg, label, isRight }: Props) => {
   const ref = useRef<HTMLButtonElement>(null);
   const router = useRouter();
   const currentPath = usePathname();
   return (
     <button
-    key={key}
       ref={ref}
       onClick={() => {
         document.querySelectorAll(".rightsc").forEach((el) => {

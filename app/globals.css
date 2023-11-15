@@ -67,9 +67,6 @@ body {
   }
 }
 
-.grid-c {
-  overscroll-behavior-inline: contain;
-}
 
 .fade {
   animation: fadein 1000ms;

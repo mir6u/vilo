@@ -10,12 +10,11 @@ interface Props {
   key: any;
 }
 
-const LGButton = ({ pathname, svg, isBordering, label, key }: Props) => {
+const LGButton = ({ pathname, svg, isBordering, label }: Props) => {
   const router = useRouter();
   const currentPath = usePathname();
   return (
     <button
-      key={key}
       title={label}
       onClick={() => {
         router.push(pathname);

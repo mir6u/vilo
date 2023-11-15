@@ -4,17 +4,6 @@ import Sidebar from "./Sidebar";
 
 const plans = [
   {
-    title: "Basic Plan",
-    description: [
-      "Background video",
-      "Color changes",
-      "Basic Badge",
-      "Special panel & chats",
-      "More",
-    ],
-    price: "$2.99",
-  },
-  {
     title: "Premium Plan",
     description: [
       "Background video",
@@ -22,28 +11,15 @@ const plans = [
       "Color changes",
       "Premium Badge",
       "Special panel & chats",
-      "More + Everything from Basic",
     ],
     price: "$7.99",
   },
   {
-    title: "Elite Plan",
-    description: [
-      "Background video",
-      "Color changes",
-      "Elite +Badge",
-      "Special panel & chats",
-      "More + Everything from Premium",
-    ],
-    price: "$12.99",
-  },
-  {
     title: "Custom plan",
     description: [
-      "Background video",
-      "Color changes",
-      "Elite +Badge",
-      "Special panel & chats",
+      "Special Features",
+      "Customise your plan",
+      "Custom badge",
       "More + Everything from Premium",
     ],
     price: 'Custom price',
@@ -53,7 +29,7 @@ const plans = [
 const PlanSection = () => {
   return (
     <>
-      <div className="2xl:flex lg:grid grid-cols-2 gap-3  grid-c   ">
+      <div className="2xl:flex lg:grid grid-cols-2 gap-3   grid-c   ">
         {plans.map((plan) => {
           return (
             <PlanComponent

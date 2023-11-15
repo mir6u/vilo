@@ -48,7 +48,8 @@ export const authOptions: NextAuthOptions = {
         );
 
         if (!passwordsMatch) {
-          const errorOutput = '{"error":"Wrong password or email","status":400}';
+          const errorOutput =
+            '{"error":"Wrong password or email","status":400}';
           const parsedError = JSON.parse(errorOutput).error;
           throw new Error(parsedError);
         }

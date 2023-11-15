@@ -10,16 +10,16 @@ interface Props {
 const PlanComponent = ({ title, description, price }: Props) => {
   return (
     <>
-      <div className="bg-gradient-to-tr  persp scale-[0.97] duration-300 hover:scale-100 flex-1 snap-start p-10 from-blue-400 via-blue-300 rounded-xl  to-purple-300">
+      <div className="bg-gradient-to-tr min-h-[30rem] min-w-[50%] w-full persp scale-[0.97] duration-300 hover:scale-100 flex-1 snap-start p-10 from-blue-400 via-blue-300 rounded-xl  to-purple-300">
         <div className="mb-6">
-          <p className="font-bold text-[1.7rem]">{title}💎</p>
+          <p className="font-bold text-[2rem]">{title}💎</p>
           <p className="font-medium text-lg">{price} / Lifetime</p>
         </div>
-        <div className="flex  mb-16 flex-col gap-1">
+        <div className="flex text-2xl  mb-16 flex-col gap-3">
           {description.map((value, index) => {
             return (
               <>
-                <div className="flex items-center font-semibold gap-3">
+                <div className="flex items-center text-2xl font-semibold gap-3">
                   <svg
                     width="15px"
                     height="15px"
@@ -58,7 +58,7 @@ const PlanComponent = ({ title, description, price }: Props) => {
         </div>
         <div className="absolute bottom-4 left-[25%]">
           <Link
-            className="text-black hover:scale-110 duration-300 py-3 font-semibold items-center px-6 rounded-xl flex gap-1 text-xl bg-white"
+            className="text-black hover:scale-110 duration-300 py-5 font-bold items-center px-14 rounded-xl flex gap-1 text-2xl bg-white"
             href={"https://discordapp.com/users/977627340605628447"}
           >
             Buy Now
