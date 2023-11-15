@@ -11,7 +11,7 @@ interface MainProfileProps {
 const MainProfile = ({ user }: MainProfileProps) => {
   console.log(user.image, 'e')
   return (
-    <div className="p-10 mb-14 rounded-lg shadow-black shadow-xl bg-[#282b30] flex flex-col items-center justify-center ">
+    <div className="p-10 mb-14 rounded-lg shadow-black shadow-md bg-[#16161D] flex flex-col items-center justify-center ">
       <div className="not-last-child:mb-10">
         <div className="-mt-[90px]">
           <Image
@@ -31,7 +31,7 @@ const MainProfile = ({ user }: MainProfileProps) => {
             className="text-3xl mt-3 text-white font-semibold"
             style={{
               backgroundImage: `url('https://media.discordapp.net/attachments/987149728800198686/991834200309248070/sparkle.gif')`,
-              filter: `drop-shadow(10px 10px 10px #ffffff)`,
+              filter: `drop-shadow(15px 15px 15px white)`,
               color: "white",
             }}
           >
@@ -68,19 +68,22 @@ const MainProfile = ({ user }: MainProfileProps) => {
         </div>
         <Link
           href={`/${user?.name}`}
-          className="text-lg text-white font-semibold gap-1 flex flex-row items-center justify-center"
+          className="text-xs text-white font-semibold gap-1 flex flex-row items-center justify-center"
         >
-          <span className="h-3 w-3 text-xs font-semibold z-10 bg-gradient-to-r from-cyan-500 to-purple-300 via-blue-600 rounded-full"></span>
+          <span className="h-3 w-3  font-semibold z-10 bg-gradient-to-r from-cyan-500 to-purple-300 via-blue-600 rounded-full"></span>
           yeh.lol/{user?.name}
         </Link>
       </div>
+      <div className="text-white flex text-xs">
+        {user?.viewsCount}
+      </div>
       <div className="not-last-child:mb-8">
         <div className="mx-auto max-w-[750px]">
-          <p className="text-[#798080] text-xl font-bold bg-clip-text bg-gradient-to-r">
+          <p className="text-[#798080] text-sm mt-8 font-bold bg-clip-text bg-gradient-to-r">
             <TypeAnimation
               sequence={[
                 user?.bio,
-                3000,
+                7000,
                 '',
                 100,
               ]}

@@ -7,7 +7,7 @@ const SocialsSection = ({ socials }: any) => {
     <div className="w-full flex gap-5 flex-col">
       {socials?.Discord ? (
         <Link
-          className="flex hover:-translate-y-2 duration-300 py-5 shadow-2xl shadow-black bg-[#282b30] rounded-lg px-5 w-full items-center justify-between flex-row"
+          className="flex hover:-translate-y-2 duration-300 py-5 shadow-lg shadow-black bg-[#16161D] rounded-lg px-5 w-full items-center justify-between flex-row"
           href={`https://discord.com/users/${socials?.Discord}`}
         >
           <SocialsComponent
@@ -49,7 +49,7 @@ const SocialsSection = ({ socials }: any) => {
       ) : null}
       {socials?.Instagram ? (
         <Link
-          className="flex hover:-translate-y-2 duration-300 py-5 shadow-2xl shadow-black bg-[#282b30] rounded-lg px-5 w-full items-center justify-between flex-row"
+          className="flex hover:-translate-y-2 duration-300 py-5 shadow-lg shadow-black bg-[#16161D] rounded-lg px-5 w-full items-center justify-between flex-row"
           href={`https://www.instagram.com/${socials?.Instagram}`}
         >
           <SocialsComponent
@@ -86,7 +86,7 @@ const SocialsSection = ({ socials }: any) => {
       {socials?.Twitter ? (
         <Link
           href={`https://twitter.com/${socials?.Twitter}`}
-          className="flex hover:-translate-y-2 duration-300 py-5 shadow-2xl shadow-black bg-[#282b30] rounded-lg px-5 w-full items-center justify-between flex-row"
+          className="flex hover:-translate-y-2 duration-300 py-5 shadow-lg shadow-black bg-[#16161D] rounded-lg px-5 w-full items-center justify-between flex-row"
         >
           <SocialsComponent
             social="X.com"
@@ -122,7 +122,7 @@ const SocialsSection = ({ socials }: any) => {
       {socials?.Telegram ? (
         <Link
           href={`https://t.me/${socials?.Telegram}`}
-          className="flex hover:-translate-y-2 duration-300 py-5 shadow-2xl shadow-black bg-[#282b30] rounded-lg px-5 w-full items-center justify-between flex-row"
+          className="flex hover:-translate-y-2 duration-300 py-5 shadow-lg shadow-black bg-[#16161D] rounded-lg px-5 w-full items-center justify-between flex-row"
         >
           <SocialsComponent
             social="Telegram"
@@ -143,7 +143,7 @@ const SocialsSection = ({ socials }: any) => {
       {socials?.Github ? (
         <Link
           href={`https://www.github.com/@${socials?.Github}`}
-          className="flex hover:-translate-y-2 duration-300 py-5 shadow-2xl shadow-black bg-[#282b30] rounded-lg px-5 w-full items-center justify-between flex-row"
+          className="flex hover:-translate-y-2 duration-300 py-5 shadow-lg shadow-black bg-[#16161D] rounded-lg px-5 w-full items-center justify-between flex-row"
         >
           <SocialsComponent
             social="GitHub"
@@ -173,7 +173,7 @@ const SocialsSection = ({ socials }: any) => {
       {socials?.TikTok ? (
         <Link
           href={`https://www.tiktok.com/@${socials?.TikTok}`}
-          className="flex hover:-translate-y-2 duration-300 py-5 shadow-2xl shadow-black bg-[#282b30] rounded-lg px-5 w-full items-center justify-between flex-row"
+          className="flex hover:-translate-y-2 duration-300 py-5 shadow-lg shadow-black bg-[#16161D] rounded-lg px-5 w-full items-center justify-between flex-row"
         >
           <SocialsComponent
             social="TikTok"
@@ -196,7 +196,7 @@ const SocialsSection = ({ socials }: any) => {
       {socials?.YouTube ? (
         <Link
           href={`https://www.youtube.com/@${socials?.YouTube}`}
-          className="flex hover:-translate-y-2 duration-300 py-5 shadow-2xl shadow-black bg-[#282b30] rounded-lg px-5 w-full items-center justify-between flex-row"
+          className="flex hover:-translate-y-2 duration-300 py-5 shadow-lg shadow-black bg-[#16161D] rounded-lg px-5 w-full items-center justify-between flex-row"
         >
           <SocialsComponent
             social="YouTube"
@@ -240,7 +240,7 @@ const SocialsSection = ({ socials }: any) => {
       {socials?.PayPal ? (
         <Link
           href={`https://www.paypal.me/${socials?.PayPal}`}
-          className="flex hover:-translate-y-2 duration-300 py-5 shadow-2xl shadow-black bg-[#282b30] rounded-lg px-5 w-full items-center justify-between flex-row"
+          className="flex hover:-translate-y-2 duration-300 py-5 shadow-lg shadow-black bg-[#16161D] rounded-lg px-5 w-full items-center justify-between flex-row"
         >
           <SocialsComponent
             social="PayPal"

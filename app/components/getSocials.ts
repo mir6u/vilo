@@ -17,6 +17,8 @@ export async function getSocials({ params: { id } }: Props) {
       userId: user!.id,
     },
   });
+  
+
 
   if (!socials) {
     socials = await prisma.socials.create({
