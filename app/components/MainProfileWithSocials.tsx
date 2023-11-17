@@ -1,18 +1,13 @@
-// MainProfileWithSocials.tsx
+
 "use client"
 import React, { useState } from "react";
 import MainProfile from "./MainProfile";
 import './components.css'
 import SocialsSection from "./SocialsSection";
-
-
 interface MainProfileWithSocialsProps {
   user: any;
-  socials: any; // Replace with the actual type of socials data
+  socials: any;
 }
-
-let isOpen = false;
-
 const MainProfileWithSocials = ({
   user,
   socials,
