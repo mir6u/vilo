@@ -3,15 +3,16 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { TypeAnimation } from "react-type-animation";
+import './components.css'
+
 
 interface MainProfileProps {
   user: any;
 }
 
 const MainProfile = ({ user }: MainProfileProps) => {
-  console.log(user.image, 'e')
   return (
-    <div className="p-10 mb-14 rounded-lg shadow-black shadow-md bg-[#16161D] flex flex-col items-center justify-center ">
+    <div className="p-10 mb-14 main rounded-lg shadow-black shadow-md bg-[#16161D] flex flex-col items-center justify-center ">
       <div className="not-last-child:mb-10">
         <div className="-mt-[90px]">
           <Image

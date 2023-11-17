@@ -1,15 +1,13 @@
-import prisma from "@/prisma/client";
+import prisma from '@/prisma/client'
 
 interface Socials {
-  userId: string;
-  Instagram: string | null;
-  // Add other social properties as needed
+  userId: string
+  Instagram: string | null
 }
 
 interface User {
-  id: string;
-  name: string | null;
-  // Add other user properties as needed
+  id: string
+  name: string | null
 }
 
 export const findUser = async (id: string): Promise<User | null> => {
@@ -18,24 +16,29 @@ export const findUser = async (id: string): Promise<User | null> => {
       where: {
         name: id,
       },
-    });
-    let isVisited: boolean = false;
+    })
+    let isViewed
+    console.log(typeof window)
     if (typeof window !== 'undefined') {
-      if (!localStorage.getItem('isVisited')) {
+      console.log(typeof window)
+      console.log(typeof window + 3)
+      setTimeout(() => {
+        console.log(typeof window)
+      }, 5400)
+      isViewed = localStorage.getItem('isVieved')
+      if (!isViewed) {
         await prisma.user.update({
           where: {
-            id: user!.id
+            id: user!.id,
           },
           data: {
             viewsCount: {
-              increment: 1
-            }
-          }
+              increment: 1,
+            },
+          },
         })
-        localStorage.setItem('isVisited', 'true')
       }
     }
-    
 
     /*await prisma.user.update({
       where: {
@@ -46,12 +49,12 @@ export const findUser = async (id: string): Promise<User | null> => {
         background: 'https://cdn.discordapp.com/attachments/981922767148552252/1174064410403274772/end-of-evangelion_1.png?ex=65663bb0&is=6553c6b0&hm=424ad8f2b07f5d123d0b024c52afd47c7fb746eccefdfc716eeae4a2e0ce8e19&',
       }
     })*/
-    return user || null;
+    return user || null
   } catch (error) {
-    console.error("Error in findUser:", error);
-    throw error; // Rethrow the error for the calling code to handle
+    console.error('Error in findUser:', error)
+    throw error // Rethrow the error for the calling code to handle
   }
-};
+}
 
 export const findSocials = async (userId: string): Promise<Socials> => {
   try {
@@ -59,16 +62,15 @@ export const findSocials = async (userId: string): Promise<Socials> => {
       where: {
         userId,
       },
-    });
+    })
 
     if (!socials) {
       socials = await prisma.socials.create({
         data: {
           userId: userId!,
         },
-      });
+      })
     }
-    
 
     /* await prisma.socials.update({
       where: {
@@ -79,9 +81,9 @@ export const findSocials = async (userId: string): Promise<Socials> => {
       }
     }) */
 
-    return socials as Socials;
+    return socials as Socials
   } catch (error) {
-    console.error("Error in findSocials:", error);
-    throw error;
+    console.error('Error in findSocials:', error)
+    throw error
   }
-};
+}

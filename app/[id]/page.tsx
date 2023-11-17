@@ -1,6 +1,4 @@
-// Import necessary dependencies
 import React, { useEffect } from "react";
-import prisma from "@/prisma/client";
 import { notFound } from "next/navigation";
 import MainProfileWithSocials from "../components/MainProfileWithSocials";
 import { findSocials, findUser } from "../components/UserService";

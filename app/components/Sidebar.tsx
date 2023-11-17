@@ -13,14 +13,14 @@ const Sidebar = () => {
   const pathname = usePathname();
   const ref1 = useRef<HTMLButtonElement>(null);
   const { status, data: session } = useSession();
-  
+
   const buttons = [
     {
       key: 1,
       pathname: status === "authenticated" ? "/profile" : "/",
       svg: (
         <svg
-        key={1}
+          key={1}
           xmlns="http://www.w3.org/2000/svg"
           stroke="currentColor"
           fill="currentColor"
@@ -40,7 +40,7 @@ const Sidebar = () => {
       pathname: "https://discord.gg/2HD3qe79ag",
       svg: (
         <svg
-        key={2}
+          key={2}
           width={25}
           viewBox="0 -28.5 256 256"
           version="1.1"
@@ -124,7 +124,7 @@ const Sidebar = () => {
       pathname: "https://blog.mirui.ru",
       svg: (
         <svg
-        key={4}
+          key={4}
           version="1.0"
           xmlns="http://www.w3.org/2000/svg"
           width="25"
@@ -162,7 +162,7 @@ const Sidebar = () => {
       pathname: "https://github.com/mir6u",
       svg: (
         <svg
-        key={5}
+          key={5}
           stroke="currentColor"
           fill="currentColor"
           strokeWidth="0"
@@ -182,7 +182,7 @@ const Sidebar = () => {
   return (
     <>
       <nav className="bg-black z-50 flex lg:hidden justify-between items-center px-12 py-4">
-      <p className="text-sm font-bold font-mono text-white flex items-center gap-4">
+        <p className="text-sm font-bold font-mono text-white flex items-center gap-4">
           <span className="h-2 w-2 font-bold z-10 bg-gradient-to-r from-cyan-500 to-purple-300 via-blue-600 rounded-full"></span>
           Yeh
         </p>

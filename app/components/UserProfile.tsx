@@ -16,7 +16,6 @@ const UserProfile = ({ id }: UserProfileProps) => {
     const fetchData = async () => {
       try {
         const userData = await findUser(id);
-
         if (!userData) {
           // Handle the case where the user is not found
           return;

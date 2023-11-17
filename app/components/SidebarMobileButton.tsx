@@ -29,9 +29,8 @@ const SidebarMobileButton = ({ pathname, svg, label, isRight }: Props) => {
         }, 300);
         router.prefetch(pathname);
       }}
-      className={`flex ${currentPath === pathname ? "bg-[#333638]" : null} ${
-        isRight ? "rightsc" : "leftsc"
-      } hover:bg-[#5f6467] btn transition-all duration-300 hover:bg-opacity-70  items-center gap-2 py-3 w-56 px-8 rounded-full`}
+      className={`flex ${currentPath === pathname ? "bg-[#333638]" : null} ${isRight ? "rightsc" : "leftsc"
+        } hover:bg-[#5f6467] btn transition-all duration-300 hover:bg-opacity-70  items-center gap-2 py-3 w-56 px-8 rounded-full`}
     >
       {svg}
       <p>{label}</p>

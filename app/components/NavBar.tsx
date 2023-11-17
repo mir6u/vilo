@@ -17,8 +17,8 @@ const NavBar = () => {
       </div>
       <div className="flex flex-row text-lg font-semibold font-mono gap-5 text-white">
         {status === 'authenticated' ? <Link href={'/api/auth/signout'}>Sign Out</Link> : <>
-        <Link href={'signin'}>Log In</Link>
-        <Link href={'/register'}>Sign Up</Link>
+          <Link href={'signin'}>Log In</Link>
+          <Link href={'/register'}>Sign Up</Link>
         </>}
       </div>
     </div>
