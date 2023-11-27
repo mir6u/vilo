@@ -38,6 +38,7 @@ const MainProfile = ({ user }: MainProfileProps) => {
           >
             {user?.name || user?.displayName}
           </h2>
+          <audio id="music" src={user.music}></audio>
           {/* <span className="cursor-pointer text-xl" title="Verified">
                         <div className="verified-icon">
                           <Image

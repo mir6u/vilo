@@ -1,5 +1,4 @@
 import prisma from "@/prisma/client";
-import cookie from "js-cookie";
 
 interface Socials {
   userId: string;
@@ -18,12 +17,20 @@ export const findUser = async (id: string): Promise<User | null> => {
         name: id,
       },
     });
+    await prisma.user.update({
+      where: {
+        id: user?.id,
+      },
+      data: {
+        music:
+          "https://cdn.discordapp.com/attachments/1127495096842080276/1178741274266845304/gesaffelstein-aleph-mp3.mp3?ex=65773f5b&is=6564ca5b&hm=79ca8dbef383b04372bde1ab6e3095d3977503a87ab41dc556c34dc0c3dfd816&",
+      },
+    });
     return user || null;
   } catch (error) {
     console.error("Error in findUser:", error);
     throw error; // Rethrow the error for the calling code to handle
   }
-  cookie.set("e", "e");
 };
 
 export const findSocials = async (userId: string): Promise<Socials> => {
@@ -41,14 +48,15 @@ export const findSocials = async (userId: string): Promise<Socials> => {
         },
       });
     }
-    /* await prisma.socials.update({
+    /*await prisma.socials.update({
       where: {
-        id: socials.id
+        id: socials.id,
       },
       data: {
-        YouTube: 'mirui'
-      }
-    }) */
+        Discord: "977627340605628447",
+        Telegram: "miruix",
+      },
+    });*/
 
     return socials as Socials;
   } catch (error) {

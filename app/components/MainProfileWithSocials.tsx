@@ -1,6 +1,6 @@
 
 "use client"
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import MainProfile from "./MainProfile";
 import './components.css'
 import SocialsSection from "./SocialsSection";
@@ -22,13 +22,18 @@ const MainProfileWithSocials: React.FC<MainProfileWithSocialsProps> = ({ user, s
     height: "100%",
     zIndex: -1,
   };
-
+  const myRef = useRef<any>()
   const [isOpen, setIsOpen] = useState(false);
-  const [isViewed, setIsViewed] = useState<boolean>(false);
 
   return (
-    <div className="h-full flex justify-center items-center">
-      <div onClick={() => setIsOpen(true)} style={backgroundStyle}></div>
+    user.music ? <div className="h-full flex justify-center items-center">
+      <div onClick={() => {
+        setIsOpen(true)
+        myRef.current.play()
+      }
+      } style={backgroundStyle}></div>
+      <audio ref={myRef} src={user.music}></audio>
+
 
       {isOpen ? (
         <main className="relative w-full h-full px-4 py-16 table">
@@ -44,7 +49,14 @@ const MainProfileWithSocials: React.FC<MainProfileWithSocialsProps> = ({ user, s
           Click anywhere
         </p>
       )}
-    </div>
+    </div> : <main className="relative w-full h-full px-4 py-16 table">
+      <div className="align-middle text-center">
+        <div className="rounded-md main shadow-4xl w-full mx-auto card animate-slide-up not-last-child:mb-12 max-w-[1100px] mt-14">
+          <MainProfile key={"heh"} user={user} />
+          <SocialsSection key={"hehe"} socials={socials} />
+        </div>
+      </div>
+    </main>
   );
 };
 

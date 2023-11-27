@@ -7,24 +7,18 @@ interface Props {
   params: { id: string };
 }
 
-const Page = ({ params: { id } }: Props) => {
-  const fetchData = async () => {
-    try {
-      const user = await findUser(id);
 
-      if (!user) {
-        notFound();
-        return;
-      }
+const Page = async ({ params: { id } }: Props) => {
 
-      const socials = await findSocials(user!.id);
-      return <MainProfileWithSocials user={user} socials={socials} />;
-    } catch (error) {
-      console.error("Error in fetchData:", error);
-    }
-  };
+  const user = await findUser(id);
 
-  return fetchData();
-};
+  if (!user) {
+    notFound();
+    return;
+  }
+
+  const socials = await findSocials(user!.id);
+  return <MainProfileWithSocials user={user} socials={socials} />;
+}
 
 export default Page;
