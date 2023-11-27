@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { notFound } from "next/navigation";
 import MainProfileWithSocials from "../components/MainProfileWithSocials";
-import { findSocials, findUser } from "../components/UserService";
+import { findSocials, findUser } from "../utils/UserService";
 
 interface Props {
   params: { id: string };

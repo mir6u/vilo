@@ -1,12 +1,10 @@
 /* eslint-disable react/no-unescaped-entities */
 "use client";
-import axios from "axios";
 import React, { useState } from "react";
 import { signIn } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import Sidebar from "./Sidebar";
-import NavBar from "./NavBar";
+import { useSession } from "next-auth/react";
 
 interface Props {
   className?: string;
@@ -18,6 +16,10 @@ const LoginPage = (props: Props) => {
   const [name, setName] = useState("");
   const [error, setError] = useState("");
   const router = useRouter();
+  const { data: session, status: status } = useSession()
+  if (status === 'authenticated') {
+    router.replace('/profile')
+  }
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
@@ -117,6 +119,11 @@ const LoginPage = (props: Props) => {
           <p className="text-red-500 text-lg font-mono font-semibold">
             {error}
           </p>
+          <div>
+            <p className="text-black font-semibold font-mono font-sm">Forgot password?&#160;
+              <Link className="text-blue-400 hover:underline transition-all duration-500" href={'/reset'}>Reset it here</Link>
+            </p>
+          </div>
           <p className="text-sm font-light font-mono text-black">
             By clicking you agree to our{" "}
             <Link className="text-blue-400" href={"/tos"}>

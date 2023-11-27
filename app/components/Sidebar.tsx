@@ -256,19 +256,15 @@ l57 -27 810 0 c924 0 870 -5 969 86 74 67 100 129 101 234 0 68 -4 89 -28 137
       )}
       <div className="hidden lg:block">
         <aside className="fixed bg-[#16161D] items-center p-1.5 text-white border transform left-8 top-[50%] translate-y-[-50%] justify-between flex flex-col border-slate-100/5 rounded-full gap-5">
-          {buttons.map((button, index) => {
-            return (
-              <>
-                <LGButton
-                  key={button.label}
-                  label={button.label}
-                  pathname={button.pathname}
-                  svg={button.svg}
-                  isBordering={button.isBordering}
-                />
-              </>
-            );
-          })}
+          {buttons.map((button, index) => (
+            <LGButton
+              key={index}  // Add a unique key prop here
+              label={button.label}
+              pathname={button.pathname}
+              svg={button.svg}
+              isBordering={button.isBordering}
+            />
+          ))}
         </aside>
       </div>
     </>
