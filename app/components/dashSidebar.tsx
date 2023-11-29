@@ -29,8 +29,8 @@ const DashSidebar = ({ user, socials }: any) => {
   const [route, setRoute] = useState();
   const { status, data: session } = useSession();
   const router = useRouter()
-  if (status === 'authenticated') {
-    router.push('/profile')
+  if (status === 'unauthenticated') {
+    router.push('/register')
   }
   const buttons = [
     {
