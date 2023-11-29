@@ -28,7 +28,10 @@ const DashSidebar = ({ user, socials }: any) => {
   const [image, setImage] = useState(user.image || null);
   const [route, setRoute] = useState();
   const { status, data: session } = useSession();
-
+  const router = useRouter()
+  if (status === 'authenticated') {
+    router.push('/profile')
+  }
   const buttons = [
     {
       key: 1,

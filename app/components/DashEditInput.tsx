@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 interface Props {
   name: any,
@@ -19,6 +20,7 @@ interface Props {
 const DashEditInput = ({ name, icon, value, setValue, username, displayName, email, discordID, music, background, bio, image, }: Props) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [newValue, setNewValue] = useState(value);
+  const router = useRouter()
   const handleSubmit = async () => {
     try {
       var response = await axios.put("/api/profile", { username, displayName, discordID, music, background, bio, image, email });
@@ -43,6 +45,7 @@ const DashEditInput = ({ name, icon, value, setValue, username, displayName, ema
     setValue(newValue);
     console.log(value)
     handleSubmit()
+    router.push('/')
     setIsModalOpen(false);
   };
 

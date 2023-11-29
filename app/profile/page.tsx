@@ -7,8 +7,9 @@ import DashSidebar from "../components/dashSidebar";
 import { useSession } from "next-auth/react";
 import DashEditBar from "../components/DashEditBar";
 import { findSocials, findUser } from "../utils/UserService";
+import { useRouter } from "next/navigation";
+const ProfilePage = async () => {
 
-const page = async () => {
 
   return (
     <>
@@ -19,4 +20,4 @@ const page = async () => {
   );
 };
 
-export default page;
+export default ProfilePage;

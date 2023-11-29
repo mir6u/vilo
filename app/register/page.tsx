@@ -6,6 +6,8 @@ import NavBar from "../components/NavBar";
 import Sidebar from "../components/Sidebar";
 import Link from "next/link";
 import "../globals.css";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 const RegisterPage = () => {
   const [email, setEmail] = useState("");
@@ -13,6 +15,11 @@ const RegisterPage = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [name, setName] = useState("");
   const [error, setError] = useState("");
+  const router = useRouter()
+  const { status, data: session } = useSession();
+  if (status === 'authenticated') {
+    router.push('/profile')
+  }
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();

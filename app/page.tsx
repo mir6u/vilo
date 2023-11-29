@@ -1,8 +1,11 @@
 import Sidebar from "./components/Sidebar";
 import Hero from "./components/Hero";
 import NavBar from "./components/NavBar";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 export default async function Home() {
+
   return (
     <>
       <script async src="https://open.spotify.com/embed/iframe-api/v1"></script>

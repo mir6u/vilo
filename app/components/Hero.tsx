@@ -1,11 +1,17 @@
 "use client";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React from "react";
 import { TypeAnimation } from "react-type-animation";
 
 const Hero = () => {
   const { status, data: session } = useSession();
+  const router = useRouter()
+  if (status === 'authenticated') {
+    router.push('/profile')
+  }
+
   console.log(status);
   return (
     <div className="relative 100vh  100wv">
