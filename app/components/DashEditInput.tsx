@@ -41,13 +41,16 @@ const DashEditInput = ({ name, icon, value, setValue, username, displayName, ema
     setIsModalOpen(false);
   };
 
-  const handleUpdate = async (e: React.FormEvent) => {
+  const handleUpdate = (e: React.FormEvent) => {
     e.preventDefault();
     setValue(newValue);
     console.log(value);
     handleSubmit();
-    router.push('/');
-    setIsModalOpen(false);
+    setTimeout(() => {
+      router.push('/signin');
+      setIsModalOpen(false);
+    }, 1000);
+
   };
 
 
