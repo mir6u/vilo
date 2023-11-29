@@ -42,6 +42,7 @@ const DashEditInput = ({ name, icon, value, setValue, username, displayName, ema
     e.preventDefault();  // Make sure to preventDefault on the event object
     setValue(newValue);
     console.log(value)
+    handleSubmit()
     setIsModalOpen(false);
   };
 
