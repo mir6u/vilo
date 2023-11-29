@@ -197,7 +197,7 @@ const DashSidebar = ({ user, socials }: any) => {
             <div className="flex flex-col text-lg font-semibold">
               <div className="">
                 <Link href={`${session?.user?.name}`} className="inline-flex ml-3 hover:bg-opacity-70  items-center bg-[#797985] px-4 py-3 rounded-md">
-                  feds.lol/{session?.user?.name}
+                  yeh.lol/{session?.user?.name}
                 </Link>
               </div>
 
