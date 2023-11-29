@@ -13,6 +13,7 @@ import Link from "next/link";
 import DashEditInput from "./DashEditInput";
 import DashboardUser from "./DashboardUser";
 import axios from "axios";
+import { signOut } from "next-auth/react";
 
 const DashSidebar = ({ user, socials }: any) => {
   const [isGeneral, setIsGeneral] = useState(true);
@@ -150,6 +151,54 @@ const DashSidebar = ({ user, socials }: any) => {
         setIsEdit(false)
         setIsGeneral(false)
         setIsInfo(true)
+      }
+    },
+    {
+      key: 2,
+      pathname: isInfo,
+      svg: (
+        <svg
+          key={3}
+          version="1.0"
+          xmlns="http://www.w3.org/2000/svg"
+          width="25px"
+          height="25px"
+          viewBox="0 0 512.000000 512.000000"
+          preserveAspectRatio="xMidYMid meet"
+        >
+          <g
+            transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
+            fill="currentColor"
+            stroke="none"
+          >
+            <path
+              d="M2429 4347 c-64 -27 -103 -53 -140 -94 -14 -15 -187 -275 -384 -578
+  -197 -302 -363 -555 -369 -562 -8 -9 -69 21 -256 128 -376 214 -375 214 -489
+  214 -85 0 -103 -3 -153 -28 -124 -61 -198 -168 -206 -297 -4 -71 7 -120 192
+  -875 118 -483 203 -810 214 -825 10 -14 38 -35 62 -48 l44 -22 1616 0 1616 0
+  44 23 c24 12 52 33 62 47 11 15 96 342 214 825 178 728 196 806 192 870 -12
+  220 -228 378 -446 325 -32 -7 -165 -77 -349 -180 -227 -129 -301 -166 -309
+  -157 -6 7 -172 260 -369 562 -197 303 -373 567 -393 587 -19 20 -62 51 -96 69
+  -54 29 -72 33 -151 36 -77 3 -98 0 -146 -20z m581 -926 c228 -349 427 -643
+  442 -654 14 -11 48 -22 75 -24 57 -6 49 -10 485 238 163 93 305 169 316 169
+  23 0 52 -25 52 -44 0 -11 -333 -1377 -346 -1418 -5 -17 -84 -18 -1474 -18
+  -1390 0 -1469 1 -1474 18 -13 41 -346 1407 -346 1418 0 19 29 44 52 44 11 0
+  180 -91 376 -202 348 -198 358 -203 414 -203 42 0 64 5 85 21 15 11 140 191
+  276 400 643 982 583 896 619 892 31 -3 50 -30 448 -637z"
+            />
+            <path
+              d="M1020 1028 c-51 -35 -72 -69 -72 -120 -1 -55 25 -104 72 -135 l33
+  -23 1506 0 c1475 0 1507 0 1538 20 89 54 102 166 29 239 l-36 36 -1519 3
+  -1518 2 -33 -22z"
+            />
+          </g>
+        </svg>
+      ),
+      label: "Log out",
+      isRight: true,
+      isBordering: false,
+      onClick: () => {
+
       }
     },
   ];

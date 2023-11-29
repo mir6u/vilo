@@ -1,5 +1,6 @@
+"use client"
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 interface Props {
@@ -40,14 +41,15 @@ const DashEditInput = ({ name, icon, value, setValue, username, displayName, ema
     setIsModalOpen(false);
   };
 
-  const handleUpdate = (e: React.FormEvent) => {
-    e.preventDefault();  // Make sure to preventDefault on the event object
+  const handleUpdate = async (e: React.FormEvent) => {
+    e.preventDefault();
     setValue(newValue);
-    console.log(value)
-    handleSubmit()
-    router.push('/')
+    console.log(value);
+    handleSubmit();
+    router.push('/');
     setIsModalOpen(false);
   };
+
 
 
 
@@ -56,6 +58,14 @@ const DashEditInput = ({ name, icon, value, setValue, username, displayName, ema
       closeModal();
     }
   };
+  const handleTextChange = async function (e: any) {
+    setNewValue(e.target.value);
+    setValue(e.target.value);
+  }
+  useEffect(() => {
+    console.log(newValue)
+  }, [newValue, value])
+
 
   return (
     <div className="flex flex-col font-sans bg-[#35353e] rounded-xl cursor-pointer hover:bg-opacity-70 p-2 gap-3">
@@ -68,10 +78,7 @@ const DashEditInput = ({ name, icon, value, setValue, username, displayName, ema
             <input
               type="text"
               value={newValue}
-              onChange={(e) => {
-                setNewValue(e.target.value)
-                setValue(newValue)
-              }}
+              onChange={handleTextChange}
               placeholder={name}
               className="rounded-lg outline-none text-white py-2 pl-2 bg-[#595962]"
             />

@@ -12,7 +12,7 @@ interface User {
 
 export const findUser = async (id: string): Promise<User | null> => {
   try {
-    const user = await prisma.user.findFirst({
+    const user = await prisma.user.findUnique({
       where: {
         name: id,
       },

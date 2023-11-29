@@ -26,6 +26,17 @@ export async function PUT(request: NextRequest) {
       bio,
       image
     );
+    const user = await prisma.user.findUnique({
+      where: {
+        name: username,
+      },
+    });
+    if (user) {
+      return NextResponse.json(
+        { error: "This username is taken" },
+        { status: 400 }
+      );
+    }
     const updatedUser = await prisma.user.update({
       where: { email: email },
       data: {

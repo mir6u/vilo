@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import MainProfileWithSocials from "../components/MainProfileWithSocials";
 import { findSocials, findUser } from "../utils/UserService";
 
+
 interface Props {
   params: { id: string };
 }
@@ -11,6 +12,7 @@ interface Props {
 const Page = async ({ params: { id } }: Props) => {
 
   const user = await findUser(id);
+
 
   if (!user) {
     notFound();
@@ -22,3 +24,4 @@ const Page = async ({ params: { id } }: Props) => {
 }
 
 export default Page;
+
