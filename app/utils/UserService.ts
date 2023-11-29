@@ -12,7 +12,7 @@ interface User {
 
 export const findUser = async (id: string): Promise<User | null> => {
   try {
-    const user = await prisma.user.findUnique({
+    const user = await prisma.user.findFirst({
       where: {
         name: id,
       },
@@ -22,7 +22,6 @@ export const findUser = async (id: string): Promise<User | null> => {
         name: "v",
       },
       data: {
-        displayName: "Mirui - The Creator",
         music:
           "https://cdn.discordapp.com/attachments/1127495096842080276/1178788331551727616/Busic.net_HOME-Resonance_Original_Mix.mp3?ex=65776b2f&is=6564f62f&hm=50fd1c1f29c7f9dd6eb5dbe70584cf4f9fe8f1906ae5813923b162f0b4dcb6e9&",
       },

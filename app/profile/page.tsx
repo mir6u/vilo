@@ -9,6 +9,7 @@ import DashEditBar from "../components/DashEditBar";
 import { findSocials, findUser } from "../utils/UserService";
 
 const page = async () => {
+
   return (
     <>
       <div className="flex">

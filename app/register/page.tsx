@@ -119,7 +119,7 @@ const RegisterPage = () => {
                   WebkitAppearance: "none",
                 }}
                 type="text"
-                className="pl-[6.7rem] lg:pl-[6.1rem] duration-300 w-full outline-none rounded-lg border-l-8 focus:border-l-cyan-500 border-transparent hover:border-l-gray-300 max-w-full shadow-lg font-light py-3 text-[#1a1a1a] text-lg"
+                className="pl-[6.7rem] lowercase lg:pl-[6.1rem] duration-300 w-full outline-none rounded-lg border-l-8 focus:border-l-cyan-500 border-transparent hover:border-l-gray-300 max-w-full shadow-lg font-light py-3 text-[#1a1a1a] text-lg"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="username"
@@ -131,7 +131,7 @@ const RegisterPage = () => {
               style={{
                 WebkitAppearance: "none",
               }}
-              className="px-2 box-border outline-none duration-300 rounded-lg border-l-8 focus:border-l-purple-300 border-transparent hover:border-l-gray-300 max-w-full shadow-lg font-light py-3 text-[#1a1a1a] text-lg"
+              className="px-2 box-border lowercase outline-none duration-300 rounded-lg border-l-8 focus:border-l-purple-300 border-transparent hover:border-l-gray-300 max-w-full shadow-lg font-light py-3 text-[#1a1a1a] text-lg"
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}

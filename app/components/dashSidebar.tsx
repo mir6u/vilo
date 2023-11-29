@@ -11,16 +11,24 @@ import prisma from "@/prisma/client";
 import { findSocials, findUser } from "../utils/UserService";
 import Link from "next/link";
 import DashEditInput from "./DashEditInput";
+import DashboardUser from "./DashboardUser";
+import axios from "axios";
 
 const DashSidebar = ({ user, socials }: any) => {
   const [isGeneral, setIsGeneral] = useState(true);
   const [isEdit, setIsEdit] = useState(false);
   const [isInfo, setIsInfo] = useState(false);
+  const [name, setName] = useState(user.name || null);
+  const [email, setEmail] = useState(user.email || null)
+  const [displayName, setDisplayName] = useState(user.displayName || null);
+  const [discordID, setDiscordID] = useState(user.discordID || null);
+  const [music, setMusic] = useState(user.music || null);
+  const [background, setBackground] = useState(user.background || null);
+  const [bio, setBio] = useState(user.bio || null);
+  const [image, setImage] = useState(user.image || null);
   const [route, setRoute] = useState();
-  const router = useRouter();
-  const pathname = usePathname();
-  const ref1 = useRef<HTMLButtonElement>(null);
   const { status, data: session } = useSession();
+
   const buttons = [
     {
       key: 1,
@@ -145,7 +153,7 @@ const DashSidebar = ({ user, socials }: any) => {
   return (
     <>
       <div className="flex flex-row text-white h-screen lg:block">
-        <div className="flex h-full"> {/* New container div with flex property */}
+        <div className="flex h-full flex-row items-center justify-center "> {/* New container div with flex property */}
           <aside className="min-w-[80px] h-full max-w-[80px] z-3  shadow-black shadow-2xl bg-[#35353e] items-center p-6 text-white border justify-center flex flex-col border-slate-100/5 gap-5">
             {buttons.map((button, index) => (
               <DashButton
@@ -158,7 +166,7 @@ const DashSidebar = ({ user, socials }: any) => {
               />
             ))}
           </aside>
-          {isGeneral && <div className="flex p-5 flex-col max-w-[400px] min-w-[400px] bg-[#51515a] text-white ">
+          {isGeneral && <div className="flex h-full p-5 flex-col max-w-[400px] min-w-[400px] bg-[#51515a] text-white ">
             <div className="text-2xl font-bold font-mono mb-6">YEH.LOL</div>
             <div className="flex flex-col text-lg font-semibold">
               Socials
@@ -181,7 +189,7 @@ const DashSidebar = ({ user, socials }: any) => {
             </div>
             <div className="font-mono font-bold mt-5 text-lg">If you have any problems, DM @mir6u on Discord</div>
           </div>}
-          {isEdit && <div className="flex p-5 flex-col max-w-[400px] min-w-[400px] bg-[#51515a] text-white ">
+          {isEdit && <div className="flex h-full p-5 flex-col max-w-[400px] min-w-[400px] bg-[#51515a] text-white ">
             <div className="text-2xl font-bold font-mono mb-6">Your Profile</div>
             <div className="flex flex-col text-lg font-semibold">
               <div className="">
@@ -191,39 +199,42 @@ const DashSidebar = ({ user, socials }: any) => {
               </div>
 
               <div className="flex-col flex p-3 gap-3 text-xl font-mono   ">
-                <DashEditInput icon={<svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <DashEditInput email={email} background={background} bio={bio} music={music} image={image} discordID={discordID} username={name} displayName={displayName} setValue={setName} icon={<svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M14 7H16C18.7614 7 21 9.23858 21 12C21 14.7614 18.7614 17 16 17H14M10 7H8C5.23858 7 3 9.23858 3 12C3 14.7614 5.23858 17 8 17H10M8 12H16" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>} value={user.name} name={"Name"} />
-                <DashEditInput icon={<svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                </svg>} value={name} name={"Name"} />
+                <DashEditInput email={email} background={background} bio={bio} music={music} image={image} discordID={discordID} username={name} displayName={displayName} setValue={setDisplayName} icon={<svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M14 7H16C18.7614 7 21 9.23858 21 12C21 14.7614 18.7614 17 16 17H14M10 7H8C5.23858 7 3 9.23858 3 12C3 14.7614 5.23858 17 8 17H10M8 12H16" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>} value={user.displayName} name={"Display Name"} />
-                <DashEditInput icon={<svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                </svg>} value={displayName} name={"Display Name"} />
+                <DashEditInput email={email} background={background} bio={bio} music={music} image={image} discordID={discordID} username={name} displayName={displayName} setValue={setBio} icon={<svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M14 7H16C18.7614 7 21 9.23858 21 12C21 14.7614 18.7614 17 16 17H14M10 7H8C5.23858 7 3 9.23858 3 12C3 14.7614 5.23858 17 8 17H10M8 12H16" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>} value={user.image} name={"Profile Picture URL"} />
-                <DashEditInput icon={<svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                </svg>} value={bio} name={"Bio"} />
+                <DashEditInput email={email} background={background} bio={bio} music={music} image={image} discordID={discordID} username={name} displayName={displayName} setValue={setImage} icon={<svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M14 7H16C18.7614 7 21 9.23858 21 12C21 14.7614 18.7614 17 16 17H14M10 7H8C5.23858 7 3 9.23858 3 12C3 14.7614 5.23858 17 8 17H10M8 12H16" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>} value={user.background} name={"Background Image URL"} />
-                <DashEditInput icon={<svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                </svg>} value={image} name={"Profile Picture URL"} />
+                <DashEditInput email={email} background={background} bio={bio} music={music} image={image} discordID={discordID} username={name} displayName={displayName} setValue={setBackground} icon={<svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M14 7H16C18.7614 7 21 9.23858 21 12C21 14.7614 18.7614 17 16 17H14M10 7H8C5.23858 7 3 9.23858 3 12C3 14.7614 5.23858 17 8 17H10M8 12H16" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>} value={user.music} name={"Background Music MP3 URL"} />
-                <DashEditInput icon={<svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                </svg>} value={background} name={"Background Image URL"} />
+                <DashEditInput email={email} background={background} bio={bio} music={music} image={image} discordID={discordID} username={name} displayName={displayName} setValue={setMusic} icon={<svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M14 7H16C18.7614 7 21 9.23858 21 12C21 14.7614 18.7614 17 16 17H14M10 7H8C5.23858 7 3 9.23858 3 12C3 14.7614 5.23858 17 8 17H10M8 12H16" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>} value={session?.user?.name} name={"Name"} />
-                <DashEditInput icon={<svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                </svg>} value={music} name={"Background Music MP3 URL"} />
+                <DashEditInput email={email} background={background} bio={bio} music={music} image={image} discordID={discordID} username={name} displayName={displayName} setValue={setDiscordID} icon={<svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M14 7H16C18.7614 7 21 9.23858 21 12C21 14.7614 18.7614 17 16 17H14M10 7H8C5.23858 7 3 9.23858 3 12C3 14.7614 5.23858 17 8 17H10M8 12H16" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>} value={session?.user?.name} name={"Name"} />
+                </svg>} value={discordID} name={"Discord Presense"} />
               </div>
             </div>
             <div className="font-mono font-bold mt-5 text-lg">If you have any problems, DM @mir6u on Discord</div>
 
           </div>}
-          {isInfo && <div>yyy</div>}
-          <div className="flex flex-1">
-            <div className="max-w-[800px]">
-              <MainProfileWithSocials user={user} socials={socials} />
-            </div>
-          </div>
+          {isInfo && <div className="h-full">yyy</div>}
 
+
+
+        </div>
+
+      </div>
+      <div className="flex-grow ml-16 justify-center flex items-center">
+        <div className="">
+          <DashboardUser user={user} socials={socials} />
         </div>
       </div>
     </>
