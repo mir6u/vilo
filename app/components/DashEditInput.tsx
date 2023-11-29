@@ -42,7 +42,6 @@ const DashEditInput = ({ name, icon, value, setValue, username, displayName, ema
     e.preventDefault();  // Make sure to preventDefault on the event object
     setValue(newValue);
     console.log(value)
-    handleSubmit()
     setIsModalOpen(false);
   };
 
@@ -65,7 +64,10 @@ const DashEditInput = ({ name, icon, value, setValue, username, displayName, ema
             <input
               type="text"
               value={newValue}
-              onChange={(e) => setNewValue(e.target.value)}
+              onChange={(e) => {
+                setNewValue(e.target.value)
+                setValue(newValue)
+              }}
               placeholder={name}
               className="rounded-lg outline-none text-white py-2 pl-2 bg-[#595962]"
             />

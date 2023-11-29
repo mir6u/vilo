@@ -39,9 +39,9 @@ export async function PUT(request: NextRequest) {
       },
     });
 
-    console.log("User Updated:", updatedUser.name); // Add this line for debugging
+    console.log("User Updated:", updatedUser); // Add this line for debugging
 
-    return NextResponse.json({ name }, { status: 200 });
+    return NextResponse.json({}, { status: 200 });
   } catch (error) {
     console.error("Error:", error); // Add this line for debugging
     return NextResponse.json(
